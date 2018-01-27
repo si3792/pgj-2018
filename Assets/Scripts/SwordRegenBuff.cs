@@ -11,10 +11,7 @@ public class SwordRegenBuff : Buff {
     }
 
     protected override void UnApply() {
-        if(character == null) {
-            Debug.Log("KOR!");
-        }
-        character.swordSummonSpeed += buffValue;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().swordSummonSpeed += buffValue;
         Debug.Log("Unapplying");
     }
 }

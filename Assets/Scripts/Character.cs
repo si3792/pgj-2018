@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Character : MonoBehaviour, IDamageTaker {
     public int health = 5;
-
+    public int invulnrableCounter = 0;
     public float swordSummonSpeed = 2.0f;
     public float acceleration = 5.0f;
     public float maxSpeed = 10.0f;
@@ -80,6 +80,7 @@ public class Character : MonoBehaviour, IDamageTaker {
             int damage = collision.gameObject.GetComponent<IDamageTaker>().Health();
             TakeDamage(damage);
             collision.gameObject.GetComponent<IDamageTaker>().TakeDamage(damage);
+            Debug.Log(health);
         }
     }
 
@@ -100,9 +101,11 @@ public class Character : MonoBehaviour, IDamageTaker {
     }
 
     public void TakeDamage(int value) {
-        health -= value;
-        if (health <= 0) {
-            Die();
+        if(invulnrableCounter<=0){
+            health -= value;
+            if (health <= 0) {
+                Die();
+            }
         }
     }
 
