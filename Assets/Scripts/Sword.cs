@@ -16,9 +16,12 @@ public class Sword : MonoBehaviour {
     }
 
     public void Initialize(float summonTime) {
-        GetComponent<Animator>().SetTrigger("Summon");
-        GetComponent<Animator>().SetFloat("ReverseSummonSpeed", 1 / summonTime);
+        Invoke("PlaySummonAnim", summonTime - 0.27f);
         Invoke("SetReady", summonTime);
+    }
+
+    private void PlaySummonAnim() {
+        GetComponent<Animator>().SetTrigger("Summon");
     }
 
     private void SetReady() {
