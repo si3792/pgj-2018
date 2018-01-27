@@ -144,7 +144,7 @@ public class Character : MonoBehaviour, IDamageTaker {
 	}
 
     private void HandleShockWave() {
-        if(Input.GetButtonDown("Fire1"))
+		// if (Input.GetButtonDown ("Fire1"))
     }
 
     public void TakeDamage(int value) {
