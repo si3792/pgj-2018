@@ -8,7 +8,6 @@ public class CoinSpawner : MonoBehaviour {
 
     private void OnDisable() {
         for(int i = 0; i < 1; i++) {
-            Debug.Log("Called");
             Invoke("SpawnCoin", 0.1f);
         }
     }
