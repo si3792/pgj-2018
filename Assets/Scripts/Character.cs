@@ -5,6 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Character : MonoBehaviour, IDamageTaker {
+    public float shochWaveRange = 5f;
     public int health = 5;
     public float dashCoolDown = 1.0f;
     public float dashTime = 0.05f;
@@ -20,6 +21,7 @@ public class Character : MonoBehaviour, IDamageTaker {
     private Rigidbody2D rigidbody;
     private bool dashing = false;
     private bool isDead = false;
+    
 
     public SwordGroup swordGroup;
 
