@@ -25,6 +25,9 @@ public class Cursor : MonoBehaviour {
 
     bool UseValidCursor() {
         Vector3 shootPosition = GetWorldPositionOnPlane(Input.mousePosition, 0);
+        if(GameObject.FindGameObjectWithTag("Player") == null) {
+            return false;
+        }
         Character character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         if(character == null) {
             return false;

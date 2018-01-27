@@ -5,11 +5,13 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Character : MonoBehaviour, IDamageTaker {
-    public float shochWaveRange = 5f;
+    public float shochWaveCoolDown = 5f;
+    public float shockWaveMagnitude = 100f;
     public int health = 5;
     public float dashCoolDown = 1.0f;
     public float dashTime = 0.05f;
     public float finalDashCheck = -1.0f;
+    public float finalShockWaveCheck = -1.0f;
     public int invulnrableCounter = 0;
     public float swordSummonSpeed = 2.0f;
 	public float swordMinRange = 2.0f;
@@ -48,6 +50,7 @@ public class Character : MonoBehaviour, IDamageTaker {
         HandleMovement();
 		ClampToPlayingField ();
         HandleAttack();
+        HandleShockWave();
     }
 
 	private void ClampToPlayingField() {
@@ -142,7 +145,18 @@ public class Character : MonoBehaviour, IDamageTaker {
 	}
 
     private void HandleShockWave() {
-        if(Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Time.time > finalShockWaveCheck + shochWaveCoolDown) {
+            Debug.Log("Reached");
+            foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
+                if (Vector3.Distance(transform.position, enemy.transform.position) < swordMinRange+1) {
+                    Debug.Log("Reached");
+                    Rigidbody2D enemyBody = enemy.GetComponent<Rigidbody2D>();
+                    Vector3 direction = enemy.transform.position - transform.position;
+                    enemyBody.AddForce(direction * shockWaveMagnitude, ForceMode2D.Force);
+                    finalShockWaveCheck = Time.time;
+                }
+            }
+        }
     }
 
     public void TakeDamage(int value) {
