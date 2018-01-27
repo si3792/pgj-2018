@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour {
 
-    private static int scoreCounter=0;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private static int scoreCounter = 0;
+    private static bool gameOver = false;
 
     public static void PickedUpCoin() {
         scoreCounter++;
@@ -23,5 +14,10 @@ public class CombatManager : MonoBehaviour {
 
     public int ScoreCounter {
         get { return scoreCounter; }
+    }
+
+    public static bool GameOver {
+        get { return gameOver; }
+        set { gameOver = value; }
     }
 }

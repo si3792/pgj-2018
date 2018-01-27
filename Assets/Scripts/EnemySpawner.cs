@@ -12,8 +12,8 @@ public class EnemySpawner : MonoBehaviour, IDamageTaker {
     private float lastSpawnTime=0.0f;
 	
 	// Update is called once per frame
-	void Update () {
-        if(Time.time >= lastSpawnTime + spawnRate) {
+    void Update () {
+        if(!CombatManager.GameOver && Time.time >= lastSpawnTime + spawnRate) {
             SpawnEnemy();
             lastSpawnTime = Time.time;
         }

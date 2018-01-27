@@ -19,6 +19,7 @@ public class Character : MonoBehaviour, IDamageTaker {
 	public float fieldUp, fieldDown;
     private Rigidbody2D rigidbody;
     private bool dashing = false;
+    private bool isDead = false;
 
     public SwordGroup swordGroup;
 
@@ -133,7 +134,6 @@ public class Character : MonoBehaviour, IDamageTaker {
         }
     }
 
-
 	private Boolean swordsRangeCheck() {
 		var distance = Vector3.Distance(GetWorldPositionOnPlane (Input.mousePosition, 0), transform.position);
 		return distance >= swordMinRange;
@@ -156,9 +156,14 @@ public class Character : MonoBehaviour, IDamageTaker {
         get { return health; }
     }
 
+    public bool IsDead {
+        get { return isDead; }
+    }
+
     private void Die() {
         gameObject.SetActive(false);
-        Debug.Log("RIP");
+        isDead = true;
+        CombatManager.GameOver = true;
     }
 
 	Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) {

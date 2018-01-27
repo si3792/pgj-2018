@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (!CombatManager.GameOver && Input.GetKeyDown(KeyCode.Escape)) {
             if (!paused) { Pause(); }
             else { Resume(); }
         }
