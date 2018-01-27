@@ -27,6 +27,7 @@ public class CombatGUI : MonoBehaviour {
 
     private void GameOver() {
         gameOver = true;
+        UnityEngine.Cursor.visible = true;
         combatGUI.SetActive(false);
         gameOverGUI.SetActive(true);
     }
