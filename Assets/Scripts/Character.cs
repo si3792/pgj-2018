@@ -83,7 +83,7 @@ public class Character : MonoBehaviour, IDamageTaker {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Enemy") {
-            int damage = collision.gameObject.GetComponent<IDamageTaker>().Health();
+            int damage = collision.gameObject.GetComponent<IDamageTaker>().Health;
             TakeDamage(damage);
             collision.gameObject.GetComponent<IDamageTaker>().TakeDamage(damage);
             Debug.Log(health);
@@ -124,8 +124,8 @@ public class Character : MonoBehaviour, IDamageTaker {
         }
     }
 
-    public int Health() {
-        return health;
+    public int Health {
+        get { return health; }
     }
 
     private void Die() {

@@ -2,19 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour , IDamageTaker {
-
-    public int health = 1;
-    public int speed = 5;
+public class Coin : MonoBehaviour {
     private Vector3 targetDirection;
+    public int speed = 6;
 
-    public void Initialize() { }
-	
-	// Update is called once per frame
-	void Update () {
+    void Update() {
         SetTartgetDirection();
         MoveTowardsTarget();
-	}
+    }
 
     private void SetTartgetDirection() {
         GameObject player = GameObject.Find("Character");
@@ -27,18 +22,10 @@ public class Enemy : MonoBehaviour , IDamageTaker {
         transform.position = Vector3.MoveTowards(transform.position, targetDirection, step);
     }
 
-    public int Health {
-       get { return health; }
-    }
-
-    public void TakeDamage(int value) {
-        health -= value;
-        if (health <= 0) {
-            Die();
+    public void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Player") {
+            CombatManager.PickedUpCoin();
+            gameObject.SetActive(false);
         }
-    }
-
-    private void Die() {
-        gameObject.SetActive(false);
     }
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IDamageTaker {
     void TakeDamage(int value);
-    int Health();
+    int Health { get; }
 }

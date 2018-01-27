@@ -32,8 +32,8 @@ public class EnemySpawner : MonoBehaviour, IDamageTaker {
         }
     }
 
-    public int Health() {
-        return health;
+    public int Health {
+        get { return health; }
     }
 
     private void Die() {
