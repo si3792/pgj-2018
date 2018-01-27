@@ -9,7 +9,6 @@ public class Buff : MonoBehaviour {
     protected Character character;
 
 	public void Initialize(Character character) {
-
         this.character = character;
         applyTime = Time.time;
         Apply();
@@ -21,6 +20,7 @@ public class Buff : MonoBehaviour {
 	void Update () {
         if (Time.time >= applyTime + duration) {
             UnApply();
+            gameObject.SetActive(false);
         }
 	}
 
