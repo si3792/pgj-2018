@@ -26,8 +26,8 @@ public class Cursor : MonoBehaviour {
     bool UseValidCursor() {
         Vector3 shootPosition = GetWorldPositionOnPlane(Input.mousePosition, 0);
         Character character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-        var distance = Vector3.Distance(GetWorldPositionOnPlane(Input.mousePosition, 0), transform.position);
-        return (distance >= character.swordMinRange) && shootPosition.y > character.swordMaxHeight;
+        var distance = Vector3.Distance(GetWorldPositionOnPlane(Input.mousePosition, 0), character.transform.position);
+        return (distance >= character.swordMinRange) && shootPosition.y <= character.swordMaxHeight;
     }
 
     Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) {
