@@ -12,8 +12,10 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 	
 	// Update is called once per frame
 	void Update () {
-        SetTartgetDirection();
-        MoveTowardsTarget();
+        if (!CombatManager.GameOver) {
+            SetTartgetDirection();
+            MoveTowardsTarget();
+        }
 	}
 
     private void SetTartgetDirection() {
