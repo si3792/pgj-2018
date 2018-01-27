@@ -48,7 +48,7 @@ public class Character : MonoBehaviour, IDamageTaker {
             sprite.flipX = false;
         }
 
-        if (dirVector.magnitude > 0.15f) {
+        if (dirVector.magnitude > 0.02f) {
             SetAnimatorVariables(dirVector.normalized);
         }
 
