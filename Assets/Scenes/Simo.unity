@@ -689,6 +689,7 @@ MonoBehaviour:
   invulnrableCounter: 0
   swordSummonSpeed: 1
   swordMinRange: 1.6
+  swordMaxHeight: 1
   acceleration: 40
   maxSpeed: 15
   fieldLeft: -21

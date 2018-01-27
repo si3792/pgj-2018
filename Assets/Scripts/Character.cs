@@ -12,6 +12,7 @@ public class Character : MonoBehaviour, IDamageTaker {
     public int invulnrableCounter = 0;
     public float swordSummonSpeed = 2.0f;
 	public float swordMinRange = 2.0f;
+	public float swordMaxHeight = 0f;
     public float acceleration = 5.0f;
     public float maxSpeed = 10.0f;
 	public float fieldLeft, fieldRight;
@@ -120,6 +121,9 @@ public class Character : MonoBehaviour, IDamageTaker {
 		if (Input.GetMouseButtonDown(0) && swordGroup.HasSwords) {
 			Vector3 shootPosition = GetWorldPositionOnPlane(Input.mousePosition, 0);
 			if( !swordsRangeCheck() )return;
+			if (shootPosition.y > swordMaxHeight) {
+				return;
+			}
             shootPosition.z = 0;
             swordGroup.ShootSword(shootPosition);
             animator.ResetTrigger("Attack");
