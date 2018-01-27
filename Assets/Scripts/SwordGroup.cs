@@ -30,8 +30,9 @@ public class SwordGroup : MonoBehaviour {
     }
 
     private void SummonSword(int index, float summonSpeed) {
-        GameObject newSword = (GameObject)Instantiate(swordPrefab, swordPositions[index].position, Quaternion.identity);
-        newSword.transform.SetParent(this.transform);
+        GameObject newSword = (GameObject)Instantiate(swordPrefab, swordPositions[index].position, swordPositions[index].rotation);
+        newSword.transform.SetParent(swordPositions[index]);
+        newSword.transform.localScale = swordPrefab.transform.localScale;
         newSword.GetComponent<Sword>().Initialize(summonSpeed);
         swords[index] = newSword.GetComponent<Sword>();
     }
