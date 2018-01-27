@@ -8,6 +8,7 @@ public class Character : MonoBehaviour, IDamageTaker {
     public int health = 5;
     public int invulnrableCounter = 0;
     public float swordSummonSpeed = 2.0f;
+	public float swordMinRange = 2.0f;
     public float acceleration = 5.0f;
     public float maxSpeed = 10.0f;
     private Rigidbody2D rigidbody;
@@ -16,6 +17,11 @@ public class Character : MonoBehaviour, IDamageTaker {
 
     private Animator animator;
     private SpriteRenderer sprite;
+
+	void OnDrawGizmosSelected() {
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawLine (transform.position - Vector3.right * swordMinRange, transform.position + Vector3.right * swordMinRange);
+	}
 
     void Start() {
         animator = GetComponent<Animator>();
@@ -85,8 +91,11 @@ public class Character : MonoBehaviour, IDamageTaker {
     }
 
     private void HandleAttack() {
-        if (Input.GetMouseButtonDown(0) && swordGroup.HasSwords) {
+
+        
+		if (Input.GetMouseButtonDown(0) && swordGroup.HasSwords) {
 			Vector3 shootPosition = GetWorldPositionOnPlane(Input.mousePosition, 0);
+			if( !swordsRangeCheck() )return;
             shootPosition.z = 0;
             swordGroup.ShootSword(shootPosition);
             animator.ResetTrigger("Attack");
@@ -95,6 +104,12 @@ public class Character : MonoBehaviour, IDamageTaker {
           //  Invoke("DesetAttacking", 0.14f);
         }
     }
+
+
+	private Boolean swordsRangeCheck() {
+		var distance = Vector3.Distance(GetWorldPositionOnPlane (Input.mousePosition, 0), transform.position);
+		return distance >= swordMinRange;
+	}
 
     private void DesetAttacking() {
         animator.SetBool("Attacking", false);

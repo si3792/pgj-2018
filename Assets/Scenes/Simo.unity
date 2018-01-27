@@ -684,6 +684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   swordSummonSpeed: 1
+  swordMinRange: 1.6
   acceleration: 40
   maxSpeed: 15
   swordGroup: {fileID: 246840041}
