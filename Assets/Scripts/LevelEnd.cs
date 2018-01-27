@@ -8,11 +8,14 @@ public class LevelEnd : MonoBehaviour {
 
     private void Start() {
         nextLevel = SceneManager.GetActiveScene().buildIndex+1;
+        Debug.Log(nextLevel);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.tag == "Player") {
             WorldMap.LevelUnlocked = nextLevel;
+            SceneManager.LoadScene(1);
+            Debug.Log("You are bestest");
         }
     }
 }
