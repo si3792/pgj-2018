@@ -10,6 +10,7 @@ public class CoinSpawner : MonoBehaviour {
         for(int i = 0; i < 1; i++) {
             Invoke("SpawnCoin", 0.1f);
         }
+        GameObject.Destroy(this);
     }
 
     private void SpawnCoin() {

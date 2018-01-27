@@ -141,8 +141,8 @@ public class Character : MonoBehaviour, IDamageTaker {
 		return distance >= swordMinRange;
 	}
 
-    private void DesetAttacking() {
-        animator.SetBool("Attacking", false);
+    private void HandleShockWave() {
+        if(Input.GetButtonDown("Fire1"))
     }
 
     public void TakeDamage(int value) {
