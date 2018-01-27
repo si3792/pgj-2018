@@ -33,6 +33,8 @@ public class CombatGUI : MonoBehaviour {
 
     public void Restart() {
         CombatManager.GameOver = false;
+        gameOverGUI.SetActive(false);
+        combatGUI.SetActive(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
