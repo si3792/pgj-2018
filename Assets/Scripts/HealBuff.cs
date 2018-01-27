@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealBuff : MonoBehaviour {
+public class HealBuff : Buff {
+    public int healValue = 1;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    protected override void Apply() {
+        character.health += healValue;
+    }
+
 }
