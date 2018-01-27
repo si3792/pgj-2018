@@ -6,12 +6,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Character : MonoBehaviour, IDamageTaker {
     public int health = 5;
+    public float dashCoolDown = 1.0f;
+    public float dashTime = 0.05f;
+    public float finalDashCheck = -1.0f;
     public int invulnrableCounter = 0;
     public float swordSummonSpeed = 2.0f;
 	public float swordMinRange = 2.0f;
     public float acceleration = 5.0f;
     public float maxSpeed = 10.0f;
     private Rigidbody2D rigidbody;
+    private bool dashing = false;
 
     public SwordGroup swordGroup;
 
@@ -30,6 +34,11 @@ public class Character : MonoBehaviour, IDamageTaker {
     }
 
     void Update() {
+        if (Input.GetButtonDown("Jump")) {
+            if(finalDashCheck<0||Time.time>finalDashCheck+dashCoolDown){
+                dashing = true;
+            }
+        }
         HandleMovement();
         HandleAttack();
     }
@@ -39,11 +48,15 @@ public class Character : MonoBehaviour, IDamageTaker {
         float yInput = Input.GetAxis("Vertical");
 
         Vector2 dirVector = new Vector2(xInput, yInput);
-
-        rigidbody.AddForce(dirVector * acceleration, ForceMode2D.Force);
+        if (dashing) {
+            rigidbody.AddForce(dirVector * acceleration * acceleration, ForceMode2D.Force);
+            dashing = false;
+            finalDashCheck = Time.time;
+        }
+        else { rigidbody.AddForce(dirVector * acceleration, ForceMode2D.Force); }
 
         float velLength = rigidbody.velocity.magnitude;
-        if (velLength > maxSpeed) {
+        if (velLength > maxSpeed && !dashing) {
             rigidbody.AddForce(rigidbody.velocity.normalized * -1 * (velLength - maxSpeed));
         }
 
@@ -131,7 +144,6 @@ public class Character : MonoBehaviour, IDamageTaker {
     private void Die() {
         gameObject.SetActive(false);
         Debug.Log("RIP");
-        PauseMenu.QuitGame();
     }
 
 	Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) {
