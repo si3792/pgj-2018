@@ -483,34 +483,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1530563878
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1530563879}
-  m_Layer: 0
-  m_Name: InvulnerabilityBuff
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1530563879
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1530563878}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6079206, y: 0.083634116, z: 0.13984321}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1756662415
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a9cbe0da3bc464ab6383af550a2eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buff: {fileID: 1643339133369234, guid: 9a64320e9a9144745b8bf9c778c2b1f1, type: 2}
+  buff: {fileID: 1022208597333924, guid: 7ab7194430f14894ca0bb12e33754929, type: 2}
 --- !u!61 &2117883553
 BoxCollider2D:
   m_ObjectHideFlags: 0
