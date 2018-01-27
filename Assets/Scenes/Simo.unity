@@ -683,10 +683,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  dashCoolDown: 1
+  dashTime: 0.05
+  finalDashCheck: -1
+  invulnrableCounter: 0
   swordSummonSpeed: 1
   swordMinRange: 1.6
   acceleration: 40
   maxSpeed: 15
+  fieldLeft: -21
+  fieldRight: 21
+  fieldUp: 0
+  fieldDown: -5.2
   swordGroup: {fileID: 246840041}
 --- !u!212 &1334173922
 SpriteRenderer:

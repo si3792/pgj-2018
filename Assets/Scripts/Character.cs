@@ -14,6 +14,8 @@ public class Character : MonoBehaviour, IDamageTaker {
 	public float swordMinRange = 2.0f;
     public float acceleration = 5.0f;
     public float maxSpeed = 10.0f;
+	public float fieldLeft, fieldRight;
+	public float fieldUp, fieldDown;
     private Rigidbody2D rigidbody;
     private bool dashing = false;
 
@@ -40,8 +42,17 @@ public class Character : MonoBehaviour, IDamageTaker {
             }
         }
         HandleMovement();
+		ClampToPlayingField ();
         HandleAttack();
     }
+
+	private void ClampToPlayingField() {
+		transform.position = new Vector3 (
+			Mathf.Clamp(transform.position.x, fieldLeft, fieldRight),
+			Mathf.Clamp(transform.position.y, fieldDown, fieldUp),
+			transform.position.z
+		);
+	}
 
     private void HandleMovement() {
         float xInput = Input.GetAxis("Horizontal");
