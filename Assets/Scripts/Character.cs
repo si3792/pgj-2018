@@ -143,7 +143,6 @@ public class Character : MonoBehaviour, IDamageTaker {
     }
 
 	private Boolean swordsRangeCheck() {
-		var distance = Vector3.Distance(GetWorldPositionOnPlane (Input.mousePosition, 0), transform.position);
 		var distance = Vector3.Distance(GetWorldPositionOnPlane (Input.mousePosition, 0), playerCenter.position);
 		return distance >= swordMinRange;
 	}
