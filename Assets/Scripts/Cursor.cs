@@ -29,7 +29,7 @@ public class Cursor : MonoBehaviour {
         if(character == null) {
             return false;
         }
-        var distance = Vector3.Distance(GetWorldPositionOnPlane(Input.mousePosition, 0), character.transform.position);
+		var distance = Vector3.Distance(GetWorldPositionOnPlane(Input.mousePosition, 0), character.playerCenter.position);
         return (distance >= character.swordMinRange) && shootPosition.y <= character.swordMaxHeight;
     }
 

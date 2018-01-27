@@ -18,6 +18,7 @@ public class Character : MonoBehaviour, IDamageTaker {
     public float maxSpeed = 10.0f;
 	public float fieldLeft, fieldRight;
 	public float fieldUp, fieldDown;
+	public Transform playerCenter;
     private Rigidbody2D rigidbody;
     private bool dashing = false;
     private bool isDead = false;
@@ -30,7 +31,8 @@ public class Character : MonoBehaviour, IDamageTaker {
 
 	void OnDrawGizmosSelected() {
 		Gizmos.color = Color.yellow;
-		Gizmos.DrawLine (transform.position - Vector3.right * swordMinRange, transform.position + Vector3.right * swordMinRange);
+		Gizmos.DrawLine (playerCenter.position - Vector3.right * swordMinRange, playerCenter.position + Vector3.right * swordMinRange);
+		Gizmos.DrawLine (playerCenter.position - Vector3.up * swordMinRange, playerCenter.position + Vector3.up * swordMinRange);
 	}
 
     void Start() {
@@ -137,7 +139,7 @@ public class Character : MonoBehaviour, IDamageTaker {
     }
 
 	private Boolean swordsRangeCheck() {
-		var distance = Vector3.Distance(GetWorldPositionOnPlane (Input.mousePosition, 0), transform.position);
+		var distance = Vector3.Distance(GetWorldPositionOnPlane (Input.mousePosition, 0), playerCenter.position);
 		return distance >= swordMinRange;
 	}
 
