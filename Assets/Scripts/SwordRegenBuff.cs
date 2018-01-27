@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordRegenBuff : MonoBehaviour {
+public class SwordRegenBuff : Buff {
+    public float buffValue = 1.0f;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    protected override void Apply() {
+        character.swordSummonSpeed -= buffValue;
+        Debug.Log("Apllying");
+    }
+
+    protected override void UnApply() {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().swordSummonSpeed += buffValue;
+        Debug.Log("Unapplying");
+    }
 }
