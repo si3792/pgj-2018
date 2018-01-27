@@ -21,14 +21,15 @@ public class TextWriter : MonoBehaviour {
 	}
 
     private void Update() {
+
+        if (currentChar == text.Length) {
+            this.enabled = false;
+        }
+
         if (Time.time > nextWrite) {
             textComp.text += text[currentChar];
             currentChar++;
             nextWrite = Time.time + writeFrequency;
-        }
-
-        if (currentChar == text.Length) {
-            this.enabled = false;
         }
     }
 }
