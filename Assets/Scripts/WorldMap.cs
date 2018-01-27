@@ -11,7 +11,9 @@ public class WorldMap : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		foreach(Button button in buttons) {
-            button.interactable = false;
+            if (button != null) {
+                button.interactable = false;
+            }
         }
         buttons[LevelUnlocked].interactable = true;
 	}

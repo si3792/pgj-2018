@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Reseter : MonoBehaviour {
+    public static bool reset;
 
 	// Use this for initialization
 	void Start () {
-		PlayerPrefs.SetInt("Level",0);
+        if (reset) {
+            PlayerPrefs.SetInt("Level", 2);
+            reset = false;
+        }
 	}	
 }
