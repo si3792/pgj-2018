@@ -110,7 +110,6 @@ GameObject:
   - component: {fileID: 224255402146467980}
   - component: {fileID: 222595002790331156}
   - component: {fileID: 114316456765748066}
-  - component: {fileID: 114349674947045552}
   - component: {fileID: 114635925299911620}
   m_Layer: 5
   m_Name: Multi Kills
@@ -182,7 +181,6 @@ GameObject:
   - component: {fileID: 224893910780495392}
   - component: {fileID: 222096845066713312}
   - component: {fileID: 114576766325326874}
-  - component: {fileID: 114968379061883004}
   - component: {fileID: 114869931227049396}
   m_Layer: 5
   m_Name: Score
@@ -289,7 +287,6 @@ GameObject:
   - component: {fileID: 224351350521983242}
   - component: {fileID: 222653194534304128}
   - component: {fileID: 114289610829300612}
-  - component: {fileID: 114979638756106090}
   - component: {fileID: 114937584673684940}
   m_Layer: 5
   m_Name: Double Kills
@@ -447,7 +444,6 @@ GameObject:
   - component: {fileID: 224330883501093368}
   - component: {fileID: 222568209932052796}
   - component: {fileID: 114416012900030180}
-  - component: {fileID: 114338939521041256}
   - component: {fileID: 114832177917015682}
   m_Layer: 5
   m_Name: Triple Kills
@@ -1161,7 +1157,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 58068b55e4baa45e687328db43927452, type: 3}
-    m_FontSize: 60
+    m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1194,7 +1190,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 58068b55e4baa45e687328db43927452, type: 3}
-    m_FontSize: 60
+    m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1239,18 +1235,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114338939521041256
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1592085975923986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 593de80d6d5264700ab0275815866d9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefixText: 'Score : '
 --- !u!114 &114344721521281278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1284,18 +1268,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Quit
---- !u!114 &114349674947045552
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1071512234060376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 593de80d6d5264700ab0275815866d9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefixText: 'Score : '
 --- !u!114 &114374574723347084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1480,7 +1452,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 58068b55e4baa45e687328db43927452, type: 3}
-    m_FontSize: 60
+    m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1847,7 +1819,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 58068b55e4baa45e687328db43927452, type: 3}
-    m_FontSize: 60
+    m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2254,18 +2226,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114968379061883004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1150169751506862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 593de80d6d5264700ab0275815866d9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefixText: 'Score : '
 --- !u!114 &114979234547376464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2293,18 +2253,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114979638756106090
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1321513094903076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 593de80d6d5264700ab0275815866d9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefixText: 'Score : '
 --- !u!222 &222005654198552454
 CanvasRenderer:
   m_ObjectHideFlags: 1
