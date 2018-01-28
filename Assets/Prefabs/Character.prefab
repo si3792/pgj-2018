@@ -388,7 +388,7 @@ MonoBehaviour:
   finalShockWaveCheck: -1
   invulnrableCounter: 0
   swordSummonSpeed: 3
-  swordMinRange: 2
+  swordMinRange: 1
   swordMaxHeight: 1
   acceleration: 40
   maxSpeed: 15
