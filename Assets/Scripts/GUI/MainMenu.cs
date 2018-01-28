@@ -7,6 +7,11 @@ public class MainMenu : MonoBehaviour {
 
     public GameObject introText;
     public GameObject mainMenuPane;
+    public float defaultDuration = 11.0f;
+
+    void Start() {
+        Invoke("EnableMenu", defaultDuration);
+    }
 
     public void Play() {
         SceneManager.LoadScene(1);
@@ -18,8 +23,12 @@ public class MainMenu : MonoBehaviour {
 
     private void Update() {
         if (Input.anyKey) {
-            introText.SetActive(false);
-            mainMenuPane.SetActive(true);
+            EnableMenu();
         }
+    }
+
+    private void EnableMenu() {
+        introText.SetActive(false);
+        mainMenuPane.SetActive(true);
     }
 }
