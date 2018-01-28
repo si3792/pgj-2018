@@ -53,9 +53,7 @@ public class Character : MonoBehaviour, IDamageTaker {
 
     void Update() {
 
-		if(Input.GetKeyDown(KeyCode.R)) {
-			TriggerHealFX();
-		}
+
 
         if (Input.GetButtonDown("Jump")) {
             if(finalDashCheck < 0 || Time.time>  finalDashCheck + dashCoolDown){
@@ -221,7 +219,7 @@ public class Character : MonoBehaviour, IDamageTaker {
 		xy.Raycast(ray, out distance);
 		return ray.GetPoint(distance);
 	}
-		
+
 
     public float NextShockwaveTime {
         get { return finalShockWaveCheck + shockWaveCoolDown; }
