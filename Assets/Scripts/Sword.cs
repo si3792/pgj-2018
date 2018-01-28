@@ -10,6 +10,7 @@ public class Sword : MonoBehaviour {
     private bool ready = false;
     private Vector3 target;
     private int damage = 1;
+	public GameObject sparkFx;
 
 
     private void Awake() {
@@ -65,6 +66,8 @@ public class Sword : MonoBehaviour {
             if (collision.gameObject.tag == "Enemy") {
                 Debug.Log("Hit the enemy");
                 collision.gameObject.GetComponent<IDamageTaker>().TakeDamage(damage);
+				var spark = Instantiate (sparkFx, collision.gameObject.transform.position, transform.rotation);
+				spark.transform.parent = null;
             }
         }
     }
