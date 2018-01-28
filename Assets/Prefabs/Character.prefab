@@ -399,6 +399,7 @@ MonoBehaviour:
   playerCenter: {fileID: 4333042796456306}
   HealFX: {fileID: 1879996410104410, guid: d8df896a0a55a457cbf7145753f92c4b, type: 2}
   dashDuration: 0.4
+  deadPlayer: {fileID: 1638341809761850, guid: c33707d44c7b446ab9c69edcb935ec61, type: 2}
   swordGroup: {fileID: 114614953050630242}
 --- !u!114 &114499243121157198
 MonoBehaviour:

@@ -30,6 +30,7 @@ public class Character : MonoBehaviour, IDamageTaker {
     private bool isDead = false;
     public float dashDuration = 0.4f;
 	private PerlinShake shake;
+	public GameObject deadPlayer;
 
     public SwordGroup swordGroup;
 
@@ -207,6 +208,8 @@ public class Character : MonoBehaviour, IDamageTaker {
     }
 
     private void Die() {
+		var obj = Instantiate (deadPlayer, playerCenter);
+		obj.transform.parent = null;
         gameObject.SetActive(false);
         isDead = true;
         CombatManager.GameOver = true;
