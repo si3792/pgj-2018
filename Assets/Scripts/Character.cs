@@ -158,7 +158,7 @@ public class Character : MonoBehaviour, IDamageTaker {
 	}
 
     private void HandleShockWave() {
-        if (Input.GetButtonDown("Fire1") && Time.time > finalShockWaveCheck + shochWaveCoolDown) {
+        if (Input.GetButtonDown("Fire2") && Time.time > finalShockWaveCheck + shochWaveCoolDown) {
             foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
                 if (Vector3.Distance(transform.position, enemy.transform.position) < swordMinRange+1) {
                     Debug.Log("Reached");
@@ -168,6 +168,7 @@ public class Character : MonoBehaviour, IDamageTaker {
                     finalShockWaveCheck = Time.time;
                 }
             }
+            GetComponent<PushbackWave>().Display();
         }
     }
 
