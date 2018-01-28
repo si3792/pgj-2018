@@ -14,8 +14,7 @@ public class CoinSpawner : MonoBehaviour {
     }
 
     private void SpawnCoin() {
-        Vector3 spawnPosition = GetNewSpawnPosition();
-        Instantiate(coinPrefab, spawnPosition, Quaternion.identity);
+        Instantiate(coinPrefab);
         Debug.Log("Spawning Coin");
     }
 
@@ -23,11 +22,5 @@ public class CoinSpawner : MonoBehaviour {
         GameObject.Destroy(this);
     }
 
-    private Vector3 GetNewSpawnPosition() {
-        GameObject player = GameObject.Find("Character");
-        if (player == null) return new Vector3();
-        Vector3 targetDirection = player.transform.position;
-        float step = coinPrefab.GetComponent<Coin>().speed * Time.deltaTime;
-        return transform.position = Vector3.MoveTowards(transform.position, targetDirection, step);
-    }
+  
 }
