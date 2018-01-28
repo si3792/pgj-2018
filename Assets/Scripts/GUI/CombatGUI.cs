@@ -38,6 +38,7 @@ public class CombatGUI : MonoBehaviour {
         gameOverGUI.SetActive(false);
         combatGUI.SetActive(true);
         Enemy.resetLevel();
+        SoundManager.instance.SwitchToDefaultTheme();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
