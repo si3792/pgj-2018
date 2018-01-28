@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour , IDamageTaker {
         GameObject player = GameObject.Find("Character");
         if (player == null) return;
         targetDirection = player.transform.position;
-		if (Vector3.Distance (player.transform.position, transform.position) > 4f && Mathf.Abs(transform.position.x - player.transform.position.x) > 0.4f)
+		if (Vector3.Distance (player.transform.position, transform.position) > 4f && Mathf.Abs(transform.position.x - player.transform.position.x) > 1f)
 			targetDirection.y = transform.position.y;
     }
 
