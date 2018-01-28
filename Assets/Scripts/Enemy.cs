@@ -12,8 +12,11 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 	bool isFacingRight = true;
 	public enemyType type = enemyType.DEFAULT;
 	private static int sineCount = 0;
+    public GameObject powerUp;
+    public GameObject[] buffs;
+    public int dropChance = 10;
 
-	public static void resetLevel() {
+    public static void resetLevel() {
 		Enemy.sineCount = 0;
 		Debug.Log(Enemy.sineCount);
 	}
@@ -108,6 +111,12 @@ public class Enemy : MonoBehaviour , IDamageTaker {
     }
 
     private void Die() {
+        if (Random.Range(1, 101) < dropChance) {
+            int buffToUse = Random.Range(0, buffs.Length);
+            PowerUp nextPowerUp = GameObject.Instantiate(powerUp, transform.position, Quaternion.identity).GetComponent<PowerUp>();
+            nextPowerUp.buff = buffs[buffToUse];
+            nextPowerUp.Initialize();
+        }
         if (type == enemyType.SINE) {
 			Enemy.sineCount -= 1;
         }

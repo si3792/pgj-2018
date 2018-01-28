@@ -133,7 +133,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.215
+  m_Volume: 0.589
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -216,3 +216,4 @@ MonoBehaviour:
   musicSource: {fileID: 82938191701153682}
   effectsSource: {fileID: 82947224595400100}
   bossTheme: {fileID: 8300000, guid: c8a9e4d0ac86e9e468baa6911b5f65b2, type: 3}
+  mainTheme: {fileID: 8300000, guid: 2a377ddd6ac7d7f4cb3a6079419899c0, type: 3}

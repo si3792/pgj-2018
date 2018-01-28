@@ -142,6 +142,10 @@ MonoBehaviour:
   closeInRange: 4
   stopDistance: 0
   type: 0
+  powerUp: {fileID: 1552438741714476, guid: 6a50e38b2d0539548825b623c0e66d71, type: 2}
+  buffs:
+  - {fileID: 1366908748554114, guid: 177bfb4668e32ff48a1bc4d69bef7a18, type: 2}
+  dropChance: 5
 --- !u!114 &114704839364773828
 MonoBehaviour:
   m_ObjectHideFlags: 1

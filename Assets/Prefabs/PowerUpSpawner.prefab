@@ -55,8 +55,8 @@ MonoBehaviour:
   spawnDistance: 20
   buffs:
   - {fileID: 1643339133369234, guid: 9a64320e9a9144745b8bf9c778c2b1f1, type: 2}
-  - {fileID: 1022208597333924, guid: 7ab7194430f14894ca0bb12e33754929, type: 2}
   - {fileID: 1366908748554114, guid: 177bfb4668e32ff48a1bc4d69bef7a18, type: 2}
   minSpawnTime: 5
   maxSpawnTime: 10
-  powerUpPrefab: {fileID: 0}
+  powerUpPrefab: {fileID: 1552438741714476, guid: 6a50e38b2d0539548825b623c0e66d71,
+    type: 2}

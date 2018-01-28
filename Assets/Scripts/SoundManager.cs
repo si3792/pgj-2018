@@ -23,6 +23,11 @@ public class SoundManager : MonoBehaviour {
         musicSource.Play();
 	}
 	
+    public void SwitchToDefaultTheme() {
+        musicSource.clip = mainTheme;
+        musicSource.Play();
+    }
+
     public void PlayEffect(AudioClip effect) {
         effectsSource.clip = effect;
         effectsSource.PlayOneShot(effect);
