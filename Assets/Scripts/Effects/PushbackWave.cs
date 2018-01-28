@@ -5,13 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(Character))]
 public class PushbackWave : MonoBehaviour {
 
-    public ParticleSystem particles;
+    //public ParticleSystem particles;
+    public GameObject ring;
 
     void Start() {
-        particles.Stop();
+         
+        //   particles.Stop();
     }
 
     public void Display() {
-        particles.Play();
+        ring.SetActive(true);
+
+        //   particles.Play();
     }
 }

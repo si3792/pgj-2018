@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emergeDuration: 2
-  minEmergeFrequency: 3
-  maxEmergeFrequency: 3
+  minEmergeFrequency: 8
+  maxEmergeFrequency: 30
   digDelay: 1.5
 --- !u!212 &212058233495771690
 SpriteRenderer:
