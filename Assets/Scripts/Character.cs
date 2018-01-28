@@ -24,7 +24,7 @@ public class Character : MonoBehaviour, IDamageTaker {
     private Rigidbody2D rigidbody;
     private bool dashing = false;
     private bool isDead = false;
-    
+    public float dashDuration = 0.4f;
 
     public SwordGroup swordGroup;
 
@@ -46,7 +46,9 @@ public class Character : MonoBehaviour, IDamageTaker {
 
     void Update() {
         if (Input.GetButtonDown("Jump")) {
-            if(finalDashCheck<0||Time.time>finalDashCheck+dashCoolDown){
+            if(finalDashCheck<0 || Time.time>finalDashCheck + dashCoolDown){
+                GetComponent<PhantomTrail>().enabled = true;
+                Invoke("StopDashing", dashDuration);
                 dashing = true;
             }
         }
@@ -54,6 +56,10 @@ public class Character : MonoBehaviour, IDamageTaker {
 		ClampToPlayingField ();
         HandleAttack();
         HandleShockWave();
+    }
+
+    private void StopDashing() {
+        GetComponent<PhantomTrail>().enabled = false;
     }
 
 	private void ClampToPlayingField() {
@@ -75,6 +81,7 @@ public class Character : MonoBehaviour, IDamageTaker {
             finalDashCheck = Time.time;
         }
         else { rigidbody.AddForce(dirVector * acceleration, ForceMode2D.Force); }
+
 
         float velLength = rigidbody.velocity.magnitude;
         if (velLength > maxSpeed && !dashing) {
@@ -120,7 +127,6 @@ public class Character : MonoBehaviour, IDamageTaker {
             int damage = collision.gameObject.GetComponent<IDamageTaker>().Health;
             TakeDamage(damage);
             collision.gameObject.GetComponent<IDamageTaker>().TakeDamage(damage);
-            Debug.Log(health);
         }
     }
 
@@ -170,7 +176,6 @@ public class Character : MonoBehaviour, IDamageTaker {
             }
         }
         animator.SetTrigger("GotHit");
-        Debug.Log("Got hit");
     }
 
     public int Health {
