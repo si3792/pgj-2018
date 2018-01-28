@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shochWaveCoolDown: 5
-  shockWaveMagnitude: 100
+  shockWaveMagnitude: 1000
   health: 5
   dashCoolDown: 1
   dashTime: 0.05
