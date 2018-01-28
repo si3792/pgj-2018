@@ -72,6 +72,7 @@ public class Sword : MonoBehaviour {
         SoundManager.instance.PlayEffect(swordHit);
         GetComponent<SpriteRenderer>().sortingLayerName = "Background";
         GetComponent<Animator>().SetTrigger("Stick");
+        gameObject.AddComponent<FadeoutObject>();
     }
 
     public bool Ready {
