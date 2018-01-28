@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d91fd189e4533e48ab0886fea404eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wormSpawnClip: {fileID: 8300000, guid: 1725b8ef021053942a78cbdc20ff188f, type: 3}
+  wormSpawnClip: {fileID: 8300000, guid: 18dc53afefb9f65468ec829f9b8d271b, type: 3}
   emergeDuration: 0.5
   minEmergeFrequency: 3
   maxEmergeFrequency: 5
