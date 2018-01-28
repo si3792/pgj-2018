@@ -81,7 +81,7 @@ public class Character : MonoBehaviour, IDamageTaker {
 		);
 	}
 
-	private void TriggerHealFX() {
+	public void TriggerHealFX() {
 		Instantiate (HealFX, playerCenter);
 	}
 
