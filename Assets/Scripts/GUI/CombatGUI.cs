@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CombatGUI : MonoBehaviour {
@@ -8,6 +9,11 @@ public class CombatGUI : MonoBehaviour {
     public GameObject combatGUI;
     public GameObject gameOverGUI;
     private Character player;
+
+    public Text scoreText;
+    public Text doubleKillsText;
+    public Text tripleKillText;
+    public Text multiKillText;
 
     private bool gameOver = false;
 
@@ -31,6 +37,14 @@ public class CombatGUI : MonoBehaviour {
         combatGUI.SetActive(false);
         gameOverGUI.SetActive(true);
         gameOverGUI.GetComponent<Animator>().SetTrigger("Enter");
+        SetDataTexts();
+    }
+
+    private void SetDataTexts() {
+        scoreText.text = "Score : " + CombatManager.ScoreCounter;
+        doubleKillsText.text = "Double Kills : " + KillCounter.doubleKills;
+        tripleKillText.text = "Triple Kills : " + KillCounter.tripleKills;
+        multiKillText.text = "Multi Kills : " + KillCounter.multiKills;
     }
 
     public void Restart() {
