@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour , IDamageTaker {
     public int health = 1;
     public int speed = 5;
     private Vector3 targetDirection;
+	bool isFacingRight = true;
 
     public void Initialize() { }
 	
@@ -18,9 +19,24 @@ public class Enemy : MonoBehaviour , IDamageTaker {
         }
 	}
 
+	protected void Flip()    
+	{
+		isFacingRight = !isFacingRight;
+
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
+	}
+
     private void SetTartgetDirection() {
         GameObject player = GameObject.Find("Character");
         if (player == null) return;
+
+		if (player.transform.position.x > transform.position.x && isFacingRight)
+			Flip ();
+		else if (player.transform.position.x < transform.position.x && !isFacingRight)
+			Flip ();
+
         targetDirection = player.transform.position;
 		if (Vector3.Distance (player.transform.position, transform.position) > 4f && Mathf.Abs(transform.position.x - player.transform.position.x) > 1f)
 			targetDirection.y = transform.position.y;
