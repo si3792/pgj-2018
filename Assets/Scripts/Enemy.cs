@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 
     private void MoveTowardsTarget() {
         Vector3 direction = targetDirection - transform.position;
+        direction.Normalize();
         GetComponent<Rigidbody2D>().AddForce(direction*speed,ForceMode2D.Force);
     }
 
