@@ -3,30 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss : MonoBehaviour {
-    Animator animator;
+    public Animator animator;
+    public float idleDelay = 1.0f;
+    public bool despawning = true;
+    public float spawnDelay = 1.0f;
+    private float lastRecordedTime = -1.0f;
 
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake () {
         animator = GetComponent<Animator>();
 	}
 	
     public void Spawn() {
-        animator.ResetTrigger("Despawn");
+        Debug.Log("Playing");
         animator.SetTrigger("Spawn");
-    }
-
-    public void Despawn() {
-        animator.ResetTrigger("Spawn");
-        animator.SetTrigger("Despawn");
+        despawning = false;
     }
 
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Fire2")) {
-            Spawn();
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("UnderGround")) {
+            if (lastRecordedTime < 0) {
+                lastRecordedTime = Time.time;
+            }
+            else if (Time.time > lastRecordedTime + spawnDelay) {
+                Spawn();
+                lastRecordedTime = -1;
+            }
         }
-        if (Input.GetButtonDown("Fire3")) {
-            Despawn();
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) {
+            Debug.Log("Reached");
+            if (lastRecordedTime < 0) {
+                lastRecordedTime = Time.time;
+            }
+            else if (lastRecordedTime > lastRecordedTime + idleDelay) {
+                Despawn();
+                lastRecordedTime = -1;
+            }
         }
+    }
+
+    public void Despawn() {
+        animator.SetTrigger("Despawn");
     }
 }
