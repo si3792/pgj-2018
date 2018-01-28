@@ -9,6 +9,8 @@ public class Boss : MonoBehaviour {
     // public float spawnDelay = 1.0f;
     // private float lastRecordedTime = -1.0f;
 
+    public AudioClip wormSpawnClip;
+
     private const int DAMAGE = 4;
 
     public float emergeDuration = 5.0f;
@@ -43,7 +45,6 @@ public class Boss : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Time.time > nextEmerge && !emerged) {
-            Debug.Log("Emerging");
             emerged = true;
             transform.position = new Vector3( player.transform.position.x, -2.0f, 0.0f);
             Dig();
@@ -57,11 +58,22 @@ public class Boss : MonoBehaviour {
     }
 
     private void Emerge() {
+        SoundManager.instance.PlayEffect(wormSpawnClip);
+        LookAtPlayer();
 		GameObject.FindGameObjectWithTag ("CameraBigShake").GetComponent<PerlinShake>().PlayShake();
         sprite.sortingOrder = 3;
         animator.SetTrigger("Emerge");
         collider.enabled = true;
         Invoke("Submerge", emergeDuration);
+    }
+
+    private void LookAtPlayer() {
+        if (player.transform.position.x > transform.position.x) {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     public void Submerge() {
