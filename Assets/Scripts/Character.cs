@@ -155,7 +155,6 @@ public class Character : MonoBehaviour, IDamageTaker {
 
     private void HandleShockWave() {
         if (Input.GetButtonDown("Fire1") && Time.time > finalShockWaveCheck + shochWaveCoolDown) {
-            Debug.Log("Reached");
             foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
                 if (Vector3.Distance(transform.position, enemy.transform.position) < swordMinRange+1) {
                     Debug.Log("Reached");

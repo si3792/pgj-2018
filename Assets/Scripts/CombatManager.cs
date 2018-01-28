@@ -12,7 +12,7 @@ public class CombatManager : MonoBehaviour {
         Debug.Log("Picked up coin");
     }
 
-    public int ScoreCounter {
+    public static int ScoreCounter {
         get { return scoreCounter; }
     }
 
