@@ -390,6 +390,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8703ec6dab393454991c76a38e559460, type: 3}
   - {fileID: 8300000, guid: f720f57392a1a0b4db631c8a617abbc2, type: 3}
   outOfSwordsClip: {fileID: 8300000, guid: 45efeb10a9731174694efeeae0bd305f, type: 3}
+  shockWaveClip: {fileID: 8300000, guid: 6ba7e4d12c3914647bfd0a9eddd8f4ac, type: 3}
   shockWaveCoolDown: 5
   shockWaveMagnitude: 1000
   health: 5

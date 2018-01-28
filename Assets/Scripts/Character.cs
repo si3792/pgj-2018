@@ -7,6 +7,7 @@ using UnityEngine;
 public class Character : MonoBehaviour, IDamageTaker {
     public AudioClip[] getHitClips;
     public AudioClip outOfSwordsClip;
+    public AudioClip shockWaveClip;
     public float shockWaveCoolDown = 5f;
     public float shockWaveMagnitude = 100f;
     public int health = 5;
@@ -182,6 +183,7 @@ public class Character : MonoBehaviour, IDamageTaker {
                     enemyBody.AddForce(direction * shockWaveMagnitude, ForceMode2D.Force);
                 }
             }
+            SoundManager.instance.PlayEffect(shockWaveClip);
             finalShockWaveCheck = Time.time;
             GetComponent<PushbackWave>().Display();
         }

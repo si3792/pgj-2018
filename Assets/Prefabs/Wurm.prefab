@@ -99,7 +99,7 @@ MonoBehaviour:
   emergeDuration: 0.5
   minEmergeFrequency: 3
   maxEmergeFrequency: 5
-  digDelay: 1
+  digDelay: 2
 --- !u!212 &212058233495771690
 SpriteRenderer:
   m_ObjectHideFlags: 1
