@@ -24,9 +24,13 @@ public class SineSpawner : MonoBehaviour {
         if (!CombatManager.GameOver && Vector3.Distance (transform.position, playerTransform.position) < activationDistance && canShoot) {
 			canShoot = false;
 			Invoke ("enableShoot", Random.Range (0.5f, 2.5f));
+			if(Random.Range(1, 100) > 60) {
+					var bonus_obj = GameObject.Instantiate (sine, transform);
+					bonus_obj.transform.parent = null;
+			}
 			var obj = GameObject.Instantiate (sine, transform);
 			obj.transform.parent = null;
 		}
-			
+
 	}
 }

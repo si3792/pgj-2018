@@ -24,9 +24,9 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 	private static int getMaxSineCount() {
 		if (CombatManager.ScoreCounter < 6)
 			return 0;
-		if (CombatManager.ScoreCounter < 50)
+		if (CombatManager.ScoreCounter < 40)
 			return 1;
-		if (CombatManager.ScoreCounter < 100)
+		if (CombatManager.ScoreCounter < 60)
 			return 2;
 		return 3;
 	}
