@@ -12,7 +12,8 @@ public class Sword : MonoBehaviour {
     private int damage = 1;
 
 
-    private void Start() {
+    private void Awake() {
+        GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
     }
 
@@ -32,6 +33,7 @@ public class Sword : MonoBehaviour {
 
     public void Shoot(Vector3 position) {
         shooting = true;
+        GetComponent<Collider2D>().enabled = true;
         target = position;
     }
 
