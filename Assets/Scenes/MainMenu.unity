@@ -396,6 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introText: {fileID: 1982089083}
   mainMenuPane: {fileID: 2082299998}
+  defaultDuration: 11
 --- !u!224 &907688397 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224663947433578986, guid: c0bddfad7d1c84c89a57c8176ba4a439,
@@ -782,6 +783,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 731575776}
+    - target: {fileID: 114732335279595516, guid: 539b980a0ec6a48fb8e8a258fe8a259d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 114732335279595516, guid: 539b980a0ec6a48fb8e8a258fe8a259d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 539b980a0ec6a48fb8e8a258fe8a259d, type: 2}
   m_IsPrefabParent: 0
@@ -1018,7 +1029,6 @@ GameObject:
   - component: {fileID: 1982089087}
   - component: {fileID: 1982089086}
   - component: {fileID: 1982089085}
-  - component: {fileID: 1982089088}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1097,18 +1107,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1982089083}
---- !u!114 &1982089088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1982089083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fbf297bf3b204b5fa88925d8761eaf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 11
 --- !u!1 &2082299998
 GameObject:
   m_ObjectHideFlags: 0
