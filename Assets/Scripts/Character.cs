@@ -168,6 +168,8 @@ public class Character : MonoBehaviour, IDamageTaker {
                 Die();
             }
         }
+        animator.SetTrigger("GotHit");
+        Debug.Log("Got hit");
     }
 
     public int Health {
