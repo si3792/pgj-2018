@@ -11,7 +11,10 @@ public class Boss : MonoBehaviour {
 
     public AudioClip wormSpawnClip;
 
-    private const int DAMAGE = 4;
+    private const int DAMAGE = 5;
+
+    public float minYPos = -9.0f;
+    public float maxYPos = -0.9f;
 
     public float emergeDuration = 5.0f;
 
@@ -46,7 +49,7 @@ public class Boss : MonoBehaviour {
 	void Update () {
         if (Time.time > nextEmerge && !emerged) {
             emerged = true;
-            transform.position = new Vector3( player.transform.position.x, -2.0f, 0.0f);
+            transform.position = new Vector3( player.transform.position.x, Mathf.Clamp(player.transform.position.y, minYPos, maxYPos), 0.0f);
             Dig();
             Invoke("Emerge", digDelay);
         }
