@@ -10,6 +10,24 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 	public float stopDistance = 0f;
     private Vector3 targetDirection;
 	bool isFacingRight = true;
+	public enemyType type = enemyType.DEFAULT;
+	private static int sineCount = 0;
+	private static int maxSineCount = 3;
+
+	public enum enemyType
+	{
+		DEFAULT,
+		SINE
+	}
+
+	void Start() {
+		Enemy.sineCount += 1;
+		if (type == enemyType.SINE) {
+			if (sineCount > Enemy.maxSineCount) {
+				Die ();
+			}
+		}
+	}
 
     public void Initialize() { }
 	
@@ -71,6 +89,7 @@ public class Enemy : MonoBehaviour , IDamageTaker {
     }
 
     private void Die() {
+		Enemy.sineCount -= 1;
         gameObject.SetActive(false);
     }
 }
