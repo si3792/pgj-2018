@@ -30,6 +30,7 @@ public class CombatGUI : MonoBehaviour {
         UnityEngine.Cursor.visible = true;
         combatGUI.SetActive(false);
         gameOverGUI.SetActive(true);
+        gameOverGUI.GetComponent<Animator>().SetTrigger("Enter");
     }
 
     public void Restart() {
