@@ -7,6 +7,11 @@ public class CombatManager : MonoBehaviour {
     private static int scoreCounter = 0;
     private static bool gameOver = false;
 
+    private void Start() {
+        scoreCounter = 0;
+        gameOver = false;
+    }
+
     public static void PickedUpCoin() {
         scoreCounter++;
 		Debug.Log("Picked up coin - " + CombatManager.scoreCounter);
