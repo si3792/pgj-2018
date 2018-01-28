@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c5393ffe1354f8f8288ea64512a2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordHit: {fileID: 8300000, guid: d57e8df9064a454409de065b666b970f, type: 3}
+  swordHitGround: {fileID: 8300000, guid: d57e8df9064a454409de065b666b970f, type: 3}
+  swordHitEnemy: {fileID: 8300000, guid: baff972e7ce06114888730f7fbcbeaf6, type: 3}
   speed: 25
   sparkFx: {fileID: 1743029136111960, guid: 58da7ddce45ab4945b8901d1a788948f, type: 2}
 --- !u!212 &212414773584645920

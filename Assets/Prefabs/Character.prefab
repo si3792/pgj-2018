@@ -366,6 +366,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c478ff568ef54445abe89ddded1ab9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  getHitClips:
+  - {fileID: 8300000, guid: d40adb91659d010458df38204a385d88, type: 3}
+  - {fileID: 8300000, guid: b1f53b3d1a8409746a0b4701cc31bbcc, type: 3}
+  - {fileID: 8300000, guid: df87f4d63d92df54fad14b8720167757, type: 3}
+  - {fileID: 8300000, guid: 8703ec6dab393454991c76a38e559460, type: 3}
+  - {fileID: 8300000, guid: f720f57392a1a0b4db631c8a617abbc2, type: 3}
+  outOfSwordsClip: {fileID: 8300000, guid: 45efeb10a9731174694efeeae0bd305f, type: 3}
   shochWaveCoolDown: 4
   shockWaveMagnitude: 1000
   health: 5
@@ -413,6 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordSling: {fileID: 8300000, guid: a93b864f38e9b3b4daca01d62eaadf4b, type: 3}
+  outOfSwordsClip: {fileID: 8300000, guid: baff972e7ce06114888730f7fbcbeaf6, type: 3}
   swordPositions:
   - {fileID: 4684574528501752}
   - {fileID: 4507415769454844}
