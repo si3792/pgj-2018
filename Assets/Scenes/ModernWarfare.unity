@@ -210,6 +210,11 @@ Prefab:
       propertyPath: minSpawnChance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114533906246168128, guid: 82f0933ba70f145e9b2cea7c4ab26e5c,
+        type: 2}
+      propertyPath: minKillCount
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 82f0933ba70f145e9b2cea7c4ab26e5c, type: 2}
   m_IsPrefabParent: 0
@@ -738,7 +743,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1006160188506276, guid: ff68e03a78ff5204c9f1853abefad4c6, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff68e03a78ff5204c9f1853abefad4c6, type: 2}
