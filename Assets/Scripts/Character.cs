@@ -25,6 +25,7 @@ public class Character : MonoBehaviour, IDamageTaker {
     private bool dashing = false;
     private bool isDead = false;
     public float dashDuration = 0.4f;
+	private PerlinShake shake;
 
     public SwordGroup swordGroup;
 
@@ -43,6 +44,7 @@ public class Character : MonoBehaviour, IDamageTaker {
         rigidbody = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         GetComponent<PhantomTrail>().enabled = false;
+		shake = GameObject.FindGameObjectWithTag ("CameraShaker").GetComponent<PerlinShake> ();
     }
 
     void Update() {
@@ -128,6 +130,7 @@ public class Character : MonoBehaviour, IDamageTaker {
             int damage = collision.gameObject.GetComponent<IDamageTaker>().Health;
             TakeDamage(damage);
             collision.gameObject.GetComponent<IDamageTaker>().TakeDamage(damage);
+			shake.PlayShake ();
         }
     }
 
