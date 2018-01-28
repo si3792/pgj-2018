@@ -5,6 +5,10 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour {
     public AudioSource musicSource;
     public AudioSource effectsSource;
+    public AudioSource anouncerSource;
+    public AudioSource wormSource;
+    public AudioSource playerSource;
+    public AudioSource enemySource;
     public static SoundManager instance = null;
 
     public AudioClip bossTheme;
@@ -31,6 +35,26 @@ public class SoundManager : MonoBehaviour {
     public void PlayEffect(AudioClip effect) {
         effectsSource.clip = effect;
         effectsSource.PlayOneShot(effect);
+    }
+
+    public void PlayAnouncer(AudioClip effect) {
+        anouncerSource.clip = effect;
+        anouncerSource.PlayOneShot(effect);
+    }
+
+    public void PlayWorm(AudioClip effect) {
+        wormSource.clip = effect;
+        wormSource.PlayOneShot(effect);
+    }
+
+    public void PlayPlayerSound(AudioClip effect) {
+        playerSource.clip = effect;
+        playerSource.PlayOneShot(effect);
+    }
+
+    public void PlayEnemySound(AudioClip effect) {
+        enemySource.clip = effect;
+        enemySource.PlayOneShot(effect);
     }
 
     public void PlayMusic(AudioClip music, bool loop = true) {

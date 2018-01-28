@@ -85,13 +85,13 @@ public class Sword : MonoBehaviour {
 
 		// 
 		if (killCount == 2) {
-            SoundManager.instance.PlayEffect(doubleKillClip);
+            SoundManager.instance.PlayAnouncer(doubleKillClip);
 			KillCounter.doubleKills++;
 		} else if (killCount == 3) {
-            SoundManager.instance.PlayEffect(tripleKillClip);
+            SoundManager.instance.PlayAnouncer(tripleKillClip);
 			KillCounter.tripleKills++;
         } else if (killCount > 3) {
-            SoundManager.instance.PlayEffect(monsterKillClip);
+            SoundManager.instance.PlayAnouncer(monsterKillClip);
 			KillCounter.multiKills++;
         }
     }

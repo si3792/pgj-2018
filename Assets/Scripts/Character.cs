@@ -152,12 +152,12 @@ public class Character : MonoBehaviour, IDamageTaker {
 
         if (Input.GetMouseButtonDown(0)) {
             if (!swordGroup.HasSwords) {
-                SoundManager.instance.PlayEffect(outOfSwordsClip);
+                SoundManager.instance.PlayPlayerSound(outOfSwordsClip);
                 return;
             }
             Vector3 shootPosition = GetWorldPositionOnPlane(Input.mousePosition, 0);
             if (!swordsRangeCheck() || shootPosition.y > swordMaxHeight) {
-                SoundManager.instance.PlayEffect(outOfSwordsClip);
+                SoundManager.instance.PlayPlayerSound(outOfSwordsClip);
                  return; }
             shootPosition.z = 0;
             swordGroup.ShootSword(shootPosition);
@@ -183,7 +183,7 @@ public class Character : MonoBehaviour, IDamageTaker {
                     enemyBody.AddForce(direction * shockWaveMagnitude, ForceMode2D.Force);
                 }
             }
-            SoundManager.instance.PlayEffect(shockWaveClip);
+            SoundManager.instance.PlayPlayerSound(shockWaveClip);
             finalShockWaveCheck = Time.time;
             GetComponent<PushbackWave>().Display();
         }
