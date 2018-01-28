@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 63273d8deb11844599d61ae96a9cabdb
-timeCreated: 1517111561
+timeCreated: 1517128060
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -123,11 +123,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 355.5
-        width: 344
-        height: 355.5
+        y: 289
+        width: 280
+        height: 289
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,12 +136,12 @@ TextureImporter:
       name: spark_1
       rect:
         serializedVersion: 2
-        x: 344
-        y: 355.5
-        width: 344
-        height: 355.5
+        x: 280
+        y: 289
+        width: 280
+        height: 289
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: spark_2
       rect:
         serializedVersion: 2
-        x: 688
-        y: 355.5
-        width: 344
-        height: 355.5
+        x: 560
+        y: 289
+        width: 280
+        height: 289
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,12 +164,12 @@ TextureImporter:
       name: spark_3
       rect:
         serializedVersion: 2
-        x: 1376
-        y: 355.5
-        width: 344
-        height: 355.5
+        x: 1120
+        y: 289
+        width: 280
+        height: 289
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -179,11 +179,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0.5
-        width: 344
-        height: 355.5
+        y: 0
+        width: 280
+        height: 289
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,12 +192,12 @@ TextureImporter:
       name: spark_5
       rect:
         serializedVersion: 2
-        x: 344
-        y: 0.5
-        width: 344
-        height: 355.5
+        x: 280
+        y: 0
+        width: 280
+        height: 289
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,12 +206,12 @@ TextureImporter:
       name: spark_6
       rect:
         serializedVersion: 2
-        x: 688
-        y: 0.5
-        width: 344
-        height: 355.5
+        x: 560
+        y: 0
+        width: 280
+        height: 289
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,12 +220,12 @@ TextureImporter:
       name: spark_7
       rect:
         serializedVersion: 2
-        x: 1032
-        y: 0.5
-        width: 344
-        height: 355.5
+        x: 840
+        y: 0
+        width: 280
+        height: 289
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -234,12 +234,12 @@ TextureImporter:
       name: spark_8
       rect:
         serializedVersion: 2
-        x: 1376
-        y: 0.5
-        width: 344
-        height: 355.5
+        x: 1120
+        y: 0
+        width: 280
+        height: 289
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
