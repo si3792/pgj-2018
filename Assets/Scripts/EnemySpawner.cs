@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour, IDamageTaker {
 
     public int health = 3;
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
     public static int enemyLimit = 10;
     private static int currentEnemyCount = 0;
     public float spawnRate = 1.0f;
@@ -21,7 +21,8 @@ public class EnemySpawner : MonoBehaviour, IDamageTaker {
 
     private void SpawnEnemy() {
         Vector3 spawnPosition = GetNewSpawnPosition();
-        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        int nextSpawn = Random.Range(0, enemyPrefabs.Length);
+        Instantiate(enemyPrefabs[nextSpawn], spawnPosition, Quaternion.identity);
     }
 
     public void TakeDamage(int value) {
@@ -44,7 +45,7 @@ public class EnemySpawner : MonoBehaviour, IDamageTaker {
         GameObject player = GameObject.Find("Character");
         if (player == null) return new Vector3();
         Vector3 targetDirection = player.transform.position;
-        float step = enemyPrefab.GetComponent<Enemy>().speed * Time.deltaTime;
+        float step = enemyPrefabs[0].GetComponent<Enemy>().speed * Time.deltaTime;
         return transform.position = Vector3.MoveTowards(transform.position, targetDirection, step);
     }
 }

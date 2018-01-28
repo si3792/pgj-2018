@@ -7,7 +7,7 @@ public class EnemySwarmer : MonoBehaviour {
     public float maxSpawnChance = 50f;
     public float minSpawnChance = 1f;
 	public int minKillCount = 0;
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
     public int spawnRate = 1;
     private Vector3 currentSpawnPosition;
     private GameObject charecter;
@@ -41,8 +41,9 @@ public class EnemySwarmer : MonoBehaviour {
         float spawnChance = (float)CombatManager.ScoreCounter / 100 - spawnRate;
         if(spawnChance<minSpawnChance) { spawnChance = minSpawnChance; }
         if (spawnChance > maxSpawnChance) { spawnChance = maxSpawnChance; }
-        if (Random.Range(1, 101) <= spawnChance) {            
-            Instantiate(enemyPrefab, currentSpawnPosition, Quaternion.identity);
+        if (Random.Range(1, 101) <= spawnChance) {
+            int nextSpawn = Random.Range(0, enemyPrefabs.Length);
+            Instantiate(enemyPrefabs[nextSpawn], currentSpawnPosition, Quaternion.identity);
         }
     }	
 }
