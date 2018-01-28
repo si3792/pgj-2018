@@ -17,7 +17,7 @@ public class CombatGUI : MonoBehaviour {
         gameOverGUI.SetActive(false);
         combatGUI.SetActive(true);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
         if (player.IsDead && !gameOver) {
@@ -36,6 +36,7 @@ public class CombatGUI : MonoBehaviour {
         CombatManager.GameOver = false;
         gameOverGUI.SetActive(false);
         combatGUI.SetActive(true);
+        Enemy.resetLevel();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
