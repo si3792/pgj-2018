@@ -6,7 +6,6 @@ using UnityEngine;
 public class SwordGroup : MonoBehaviour {
 
     public AudioClip swordSling;
-    public AudioClip outOfSwordsClip;
     public Transform[] swordPositions;
     private Sword[] swords;
     public GameObject swordPrefab;
