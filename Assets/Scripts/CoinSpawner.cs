@@ -7,16 +7,20 @@ public class CoinSpawner : MonoBehaviour {
     public GameObject coinPrefab;
 
     private void OnDisable() {
-        for(int i = 0; i < 1; i++) {
+        for (int i = 0; i < 1; i++) {
             Invoke("SpawnCoin", 0.1f);
         }
-        GameObject.Destroy(this);
+        Invoke("Destroy", 1f);
     }
 
     private void SpawnCoin() {
         Vector3 spawnPosition = GetNewSpawnPosition();
         Instantiate(coinPrefab, spawnPosition, Quaternion.identity);
         Debug.Log("Spawning Coin");
+    }
+
+    private void Destroy() {
+        GameObject.Destroy(this);
     }
 
     private Vector3 GetNewSpawnPosition() {
