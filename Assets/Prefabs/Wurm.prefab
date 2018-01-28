@@ -96,9 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d91fd189e4533e48ab0886fea404eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emergeDuration: 2
-  minEmergeFrequency: 8
-  maxEmergeFrequency: 30
+  emergeDuration: 0.5
+  minEmergeFrequency: 3
+  maxEmergeFrequency: 5
   digDelay: 1.5
 --- !u!212 &212058233495771690
 SpriteRenderer:
