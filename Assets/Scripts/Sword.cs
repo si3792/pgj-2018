@@ -12,7 +12,7 @@ public class Sword : MonoBehaviour {
     private Vector3 target;
     private int damage = 1;
 	public GameObject sparkFx;
-
+	private int killCount = 0;
 
     private void Awake() {
         GetComponent<Collider2D>().enabled = false;
@@ -65,7 +65,8 @@ public class Sword : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (shooting) {
             if (collision.gameObject.tag == "Enemy") {
-                collision.gameObject.GetComponent<IDamageTaker>().TakeDamage(damage);
+				killCount += 1;
+                collision.gameObject.GetComponent<IDamageTaker>().TakeDamage(damage);	
 				var spark = Instantiate (sparkFx, collision.gameObject.transform.position, transform.rotation);
 				spark.transform.parent = null;
                 SoundManager.instance.PlayEffect(swordHitEnemy);
@@ -78,6 +79,15 @@ public class Sword : MonoBehaviour {
         GetComponent<SpriteRenderer>().sortingLayerName = "Background";
         GetComponent<Animator>().SetTrigger("Stick");
         gameObject.AddComponent<FadeoutObject>();
+
+		// 
+		if (killCount == 2) {
+			// Sound - double kill
+		} else if (killCount == 3) {
+			// Sound - triple kill
+		} else if (killCount > 3) {
+			// Sound - multi kill
+		}
     }
 
     public bool Ready {
