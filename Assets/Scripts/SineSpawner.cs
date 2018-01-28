@@ -21,7 +21,7 @@ public class SineSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Vector3.Distance (transform.position, playerTransform.position) < activationDistance && canShoot) {
+        if (!CombatManager.GameOver && Vector3.Distance (transform.position, playerTransform.position) < activationDistance && canShoot) {
 			canShoot = false;
 			Invoke ("enableShoot", Random.Range (0.5f, 2.5f));
 			var obj = GameObject.Instantiate (sine, transform);

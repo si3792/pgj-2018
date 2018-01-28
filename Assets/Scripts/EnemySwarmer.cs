@@ -6,6 +6,7 @@ public class EnemySwarmer : MonoBehaviour {
     public int spawnDistance = 40;
     public float maxSpawnChance = 50f;
     public float minSpawnChance = 1f;
+	public int minKillCount = 0;
     public GameObject enemyPrefab;
     public int spawnRate = 1;
     private Vector3 currentSpawnPosition;
@@ -17,8 +18,12 @@ public class EnemySwarmer : MonoBehaviour {
 	}
 
     private void FixedUpdate() {
-        ChoseSpawnPosition();
-        ChoseToSpawn();
+        if (!CombatManager.GameOver) {
+			if (CombatManager.ScoreCounter < minKillCount)
+				return;
+            ChoseSpawnPosition();
+            ChoseToSpawn();
+        }
     }
 
 

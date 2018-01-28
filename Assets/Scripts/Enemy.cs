@@ -12,7 +12,16 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 	bool isFacingRight = true;
 	public enemyType type = enemyType.DEFAULT;
 	private static int sineCount = 0;
-	private static int maxSineCount = 3;
+
+	private static int getMaxSineCount() {
+		if (CombatManager.ScoreCounter < 15)
+			return 0;
+		if (CombatManager.ScoreCounter < 50)
+			return 1;
+		if (CombatManager.ScoreCounter < 100)
+			return 2;
+		return 3;
+	}
 
 	public enum enemyType
 	{
@@ -21,9 +30,9 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 	}
 
 	void Start() {
-		Enemy.sineCount += 1;
-		if (type == enemyType.SINE) {
-			if (sineCount > Enemy.maxSineCount) {
+        if (type == enemyType.SINE) {
+			Enemy.sineCount += 1;
+			if (sineCount > Enemy.getMaxSineCount()) {
 				Die ();
 			}
 		}
@@ -89,7 +98,9 @@ public class Enemy : MonoBehaviour , IDamageTaker {
     }
 
     private void Die() {
-		Enemy.sineCount -= 1;
+        if (type == enemyType.SINE) {
+			Enemy.sineCount -= 1;
+        }
         gameObject.SetActive(false);
     }
 }
