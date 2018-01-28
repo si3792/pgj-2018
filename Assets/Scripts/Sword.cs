@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sword : MonoBehaviour {
-    
+
+    public AudioClip swordHit;
     public float speed = 5.0f;
     private bool shooting = false;
     private bool ready = false;
@@ -40,7 +41,7 @@ public class Sword : MonoBehaviour {
             MoveTowardsTarget();
         }
 
-        if (Vector3.Distance(transform.position, target) < 0.001) {
+        if (Vector3.Distance(transform.position, target) < 0.001 && shooting) {
             shooting = false;
             ClipHalf();
         }
@@ -67,6 +68,8 @@ public class Sword : MonoBehaviour {
     }
 
     private void ClipHalf() {
+        Debug.Log("Called");
+        SoundManager.instance.PlayEffect(swordHit);
         GetComponent<SpriteRenderer>().sortingLayerName = "Background";
         GetComponent<Animator>().SetTrigger("Stick");
     }

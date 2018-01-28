@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SwordGroup : MonoBehaviour {
 
+    public AudioClip swordSling;
     public Transform[] swordPositions;
     private Sword[] swords;
     public GameObject swordPrefab;
@@ -22,6 +23,7 @@ public class SwordGroup : MonoBehaviour {
             if (swords[i].Ready) {
                 swords[i].transform.SetParent(null);
                 swords[i].Shoot(position);
+                SoundManager.instance.PlayEffect(swordSling);
                 swords[i] = null;
                 SummonSword(i, character.swordSummonSpeed);
                 return;
