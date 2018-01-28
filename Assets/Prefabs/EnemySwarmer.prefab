@@ -51,9 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96019d0214994934b9161db7c2bda28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDistance: 20
+  spawnDistance: 40
   maxSpawnChance: 50
   minSpawnChance: 1
-  enemyPrefab: {fileID: 1974895244352714, guid: 7f07f7e5722f5074c81b19d33e83bfbc,
-    type: 2}
+  minKillCount: 0
+  enemyPrefabs:
+  - {fileID: 1974895244352714, guid: 7f07f7e5722f5074c81b19d33e83bfbc, type: 2}
+  - {fileID: 1604677771358596, guid: 15ab0b26042e7534a95c0ba1e67cbe9f, type: 2}
+  - {fileID: 1604677771358596, guid: 15ab0b26042e7534a95c0ba1e67cbe9f, type: 2}
   spawnRate: 1
