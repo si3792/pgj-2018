@@ -145,7 +145,9 @@ public class Character : MonoBehaviour, IDamageTaker {
                 return;
             }
             Vector3 shootPosition = GetWorldPositionOnPlane(Input.mousePosition, 0);
-            if (!swordsRangeCheck() || shootPosition.y > swordMaxHeight) { return; }
+            if (!swordsRangeCheck() || shootPosition.y > swordMaxHeight) {
+                SoundManager.instance.PlayEffect(outOfSwordsClip);
+                 return; }
             shootPosition.z = 0;
             swordGroup.ShootSword(shootPosition);
             animator.ResetTrigger("Attack");

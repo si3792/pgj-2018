@@ -13,6 +13,11 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 	public enemyType type = enemyType.DEFAULT;
 	private static int sineCount = 0;
 
+	public static void resetLevel() {
+		Enemy.sineCount = 0;
+		Debug.Log(Enemy.sineCount);
+	}
+
 	private static int getMaxSineCount() {
 		if (CombatManager.ScoreCounter < 15)
 			return 0;
@@ -33,13 +38,14 @@ public class Enemy : MonoBehaviour , IDamageTaker {
         if (type == enemyType.SINE) {
 			Enemy.sineCount += 1;
 			if (sineCount > Enemy.getMaxSineCount()) {
+				Destroy(transform.GetComponentInChildren<CoinSpawner> ());
 				Die ();
 			}
 		}
 	}
 
     public void Initialize() { }
-	
+
 	// Update is called once per frame
 	void Update () {
         if (!CombatManager.GameOver) {
@@ -51,7 +57,7 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 			transform.position = new Vector3 (transform.position.x, 0, 0);
 	}
 
-	protected void Flip()    
+	protected void Flip()
 	{
 		isFacingRight = !isFacingRight;
 
