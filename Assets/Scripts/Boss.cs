@@ -57,6 +57,7 @@ public class Boss : MonoBehaviour {
     }
 
     private void Emerge() {
+		GameObject.FindGameObjectWithTag ("CameraBigShake").GetComponent<PerlinShake>().PlayShake();
         sprite.sortingOrder = 3;
         animator.SetTrigger("Emerge");
         collider.enabled = true;
