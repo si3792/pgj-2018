@@ -19,10 +19,14 @@ public class HealthBar : MonoBehaviour {
     private void Update() {
         for (int i = 0; i < bars.Count; i++) {
             if (i < player.health) {
-                bars[i].enabled = true;;
+                Color col = bars[i].color;
+                col.a = 1.0f;
+                bars[i].color = col;
             }
             else {
-                bars[i].enabled = false;
+                Color col = bars[i].color;
+                col.a = 0.0f;
+                bars[i].color = col;
             }
         }
     }
