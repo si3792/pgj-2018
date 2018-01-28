@@ -6,7 +6,28 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 
     public int health = 1;
     public int speed = 5;
+	public float closeInRange = 4f;
+	public float stopDistance = 0f;
     private Vector3 targetDirection;
+	bool isFacingRight = true;
+	public enemyType type = enemyType.DEFAULT;
+	private static int sineCount = 0;
+	private static int maxSineCount = 3;
+
+	public enum enemyType
+	{
+		DEFAULT,
+		SINE
+	}
+
+	void Start() {
+		Enemy.sineCount += 1;
+		if (type == enemyType.SINE) {
+			if (sineCount > Enemy.maxSineCount) {
+				Die ();
+			}
+		}
+	}
 
     public void Initialize() { }
 	
@@ -16,13 +37,37 @@ public class Enemy : MonoBehaviour , IDamageTaker {
             SetTartgetDirection();
             MoveTowardsTarget();
         }
+
+		if (transform.position.y > 0)
+			transform.position = new Vector3 (transform.position.x, 0, 0);
+	}
+
+	protected void Flip()    
+	{
+		isFacingRight = !isFacingRight;
+
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
 	}
 
     private void SetTartgetDirection() {
         GameObject player = GameObject.Find("Character");
         if (player == null) return;
+
+		if (player.transform.position.x > transform.position.x && isFacingRight)
+			Flip ();
+		else if (player.transform.position.x < transform.position.x && !isFacingRight)
+			Flip ();
+
+		// Dont move if respecting stopDistance
+		if (Vector3.Distance (player.transform.position, transform.position) < stopDistance) {
+			targetDirection = transform.position;
+			return;
+		}
+
         targetDirection = player.transform.position;
-		if (Vector3.Distance (player.transform.position, transform.position) > 4f && Mathf.Abs(transform.position.x - player.transform.position.x) > 0.4f)
+		if (Vector3.Distance (player.transform.position, transform.position) > closeInRange && Mathf.Abs(transform.position.x - player.transform.position.x) > 1f)
 			targetDirection.y = transform.position.y;
     }
 
@@ -44,6 +89,7 @@ public class Enemy : MonoBehaviour , IDamageTaker {
     }
 
     private void Die() {
+		Enemy.sineCount -= 1;
         gameObject.SetActive(false);
     }
 }
