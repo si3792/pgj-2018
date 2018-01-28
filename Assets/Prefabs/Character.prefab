@@ -408,6 +408,7 @@ MonoBehaviour:
   fieldUp: 0
   fieldDown: -5.2
   playerCenter: {fileID: 4985685452144782}
+  HealFX: {fileID: 1879996410104410, guid: d8df896a0a55a457cbf7145753f92c4b, type: 2}
   dashDuration: 0.4
   swordGroup: {fileID: 114988712495133232}
 --- !u!114 &114673983295328854

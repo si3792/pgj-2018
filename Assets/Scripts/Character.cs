@@ -23,6 +23,7 @@ public class Character : MonoBehaviour, IDamageTaker {
 	public float fieldLeft, fieldRight;
 	public float fieldUp, fieldDown;
 	public Transform playerCenter;
+	public GameObject HealFX;
     private Rigidbody2D rigidbody;
     private bool dashing = false;
     private bool isDead = false;
@@ -50,6 +51,11 @@ public class Character : MonoBehaviour, IDamageTaker {
     }
 
     void Update() {
+
+		if(Input.GetKeyDown(KeyCode.R)) {
+			TriggerHealFX();
+		}
+
         if (Input.GetButtonDown("Jump")) {
             if(finalDashCheck < 0 || Time.time>  finalDashCheck + dashCoolDown){
                 GetComponent<PhantomTrail>().enabled = true;
@@ -73,6 +79,10 @@ public class Character : MonoBehaviour, IDamageTaker {
 			Mathf.Clamp(transform.position.y, fieldDown, fieldUp),
 			transform.position.z
 		);
+	}
+
+	private void TriggerHealFX() {
+		Instantiate (HealFX, playerCenter);
 	}
 
     private void HandleMovement() {
