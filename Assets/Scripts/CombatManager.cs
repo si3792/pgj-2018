@@ -14,7 +14,6 @@ public class CombatManager : MonoBehaviour {
 
     public static void PickedUpCoin() {
         scoreCounter++;
-		Debug.Log("Picked up coin - " + CombatManager.scoreCounter);
     }
 
     public static int ScoreCounter {
