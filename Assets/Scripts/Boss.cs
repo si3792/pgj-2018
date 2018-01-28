@@ -61,7 +61,7 @@ public class Boss : MonoBehaviour {
     }
 
     private void Emerge() {
-        SoundManager.instance.PlayEffect(wormSpawnClip);
+        SoundManager.instance.PlayWorm(wormSpawnClip);
         LookAtPlayer();
 		GameObject.FindGameObjectWithTag ("CameraBigShake").GetComponent<PerlinShake>().PlayShake();
         sprite.sortingOrder = 3;
