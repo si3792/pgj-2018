@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c5393ffe1354f8f8288ea64512a2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordHit: {fileID: 8300000, guid: d57e8df9064a454409de065b666b970f, type: 3}
   speed: 25
 --- !u!212 &212414773584645920
 SpriteRenderer:

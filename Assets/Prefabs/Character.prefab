@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3f98258b4df453c912ffb124c261ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordSling: {fileID: 8300000, guid: a93b864f38e9b3b4daca01d62eaadf4b, type: 3}
   swordPositions:
   - {fileID: 4684574528501752}
   - {fileID: 4507415769454844}
