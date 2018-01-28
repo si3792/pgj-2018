@@ -161,13 +161,12 @@ public class Character : MonoBehaviour, IDamageTaker {
         if (Input.GetButtonDown("Fire2") && Time.time > finalShockWaveCheck + shochWaveCoolDown) {
             foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
                 if (Vector3.Distance(transform.position, enemy.transform.position) < swordMinRange+1) {
-                    Debug.Log("Reached");
                     Rigidbody2D enemyBody = enemy.GetComponent<Rigidbody2D>();
                     Vector3 direction = enemy.transform.position - transform.position;
                     enemyBody.AddForce(direction * shockWaveMagnitude, ForceMode2D.Force);
-                    finalShockWaveCheck = Time.time;
                 }
             }
+            finalShockWaveCheck = Time.time;
             GetComponent<PushbackWave>().Display();
         }
     }
