@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
-  buffValue: 1
+  buffValue: 0.1
 --- !u!212 &212265331586807988
 SpriteRenderer:
   m_ObjectHideFlags: 1
