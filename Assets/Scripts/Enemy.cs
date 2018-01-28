@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour , IDamageTaker {
         if (type == enemyType.SINE) {
 			Enemy.sineCount += 1;
 			if (sineCount > Enemy.getMaxSineCount()) {
+				Destroy(transform.GetComponentInChildren<CoinSpawner> ());
 				Die ();
 			}
 		}
