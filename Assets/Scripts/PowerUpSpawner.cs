@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUpSpawner : MonoBehaviour {
-    public int health = 3;
-    public int spawnDistance = 20;
+
+    public int spawnDistance = 7;
     public GameObject[] buffs;
     public float minSpawnTime= 5.0f;
     public float maxSpawnTime = 10f;
@@ -34,6 +34,7 @@ public class PowerUpSpawner : MonoBehaviour {
         int buffToUse = Random.Range(0, buffs.Length);
         nextPowerUp = GameObject.Instantiate(powerUpPrefab, currentSpawnPosition, Quaternion.identity).GetComponent<PowerUp>();
         nextPowerUp.buff = buffs[buffToUse];
+        nextPowerUp.Initialize();
         Debug.Log("Spawning");
     }
 
