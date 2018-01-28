@@ -26,6 +26,12 @@ public class SoundManager : MonoBehaviour {
         effectsSource.PlayOneShot(effect);
     }
 
+    public void RandomiseSoundEffect(params AudioClip[] audioClips) {
+        int soundToPlay = Random.Range(0, audioClips.Length);
+        effectsSource.clip = audioClips[soundToPlay];
+        effectsSource.PlayOneShot(audioClips[soundToPlay]);
+    }
+
     public void SwitchToBossTheme() {
         musicSource.Pause();
         musicSource.clip = bossTheme;

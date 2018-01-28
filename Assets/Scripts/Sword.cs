@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour {
 
-    public AudioClip swordHit;
+    public AudioClip swordHitGround;
+    public AudioClip swordHitEnemy;
     public float speed = 5.0f;
     private bool shooting = false;
     private bool ready = false;
@@ -64,17 +65,16 @@ public class Sword : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (shooting) {
             if (collision.gameObject.tag == "Enemy") {
-                Debug.Log("Hit the enemy");
                 collision.gameObject.GetComponent<IDamageTaker>().TakeDamage(damage);
 				var spark = Instantiate (sparkFx, collision.gameObject.transform.position, transform.rotation);
 				spark.transform.parent = null;
+                SoundManager.instance.PlayEffect(swordHitEnemy);
             }
         }
     }
 
     private void ClipHalf() {
-        Debug.Log("Called");
-        SoundManager.instance.PlayEffect(swordHit);
+        SoundManager.instance.PlayEffect(swordHitGround);
         GetComponent<SpriteRenderer>().sortingLayerName = "Background";
         GetComponent<Animator>().SetTrigger("Stick");
         gameObject.AddComponent<FadeoutObject>();
