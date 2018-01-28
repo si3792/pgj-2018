@@ -3,47 +3,77 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss : MonoBehaviour {
-    public Animator animator;
-    public float idleDelay = 1.0f;
-    public bool despawning = true;
-    public float spawnDelay = 1.0f;
-    private float lastRecordedTime = -1.0f;
+
+    // public float idleDelay = 1.0f;
+    // public bool despawning = true;
+    // public float spawnDelay = 1.0f;
+    // private float lastRecordedTime = -1.0f;
+
+    private const int DAMAGE = 4;
+
+    public float emergeDuration = 5.0f;
+
+    public float minEmergeFrequency = 10.0f;
+    public float maxEmergeFrequency = 30.0f;
+
+    public float digDelay = 1.0f;
+
+    private float lastEmerge = 0.0f;
+    private float nextEmerge = 0.0f;
+
+    private Animator animator;
+    private Collider2D collider;
+    private Character player;
+    private SpriteRenderer sprite;
+    private bool emerged = false;
+
 
     // Use this for initialization
-    void Awake () {
+    void Start () {
         animator = GetComponent<Animator>();
-	}
-	
-    public void Spawn() {
-        Debug.Log("Playing");
-        animator.SetTrigger("Spawn");
-        despawning = false;
+        collider = GetComponent<Collider2D>();
+        player = GameObject.FindWithTag("Player").GetComponent<Character>();
+        sprite = GetComponent<SpriteRenderer>();
+
+        collider.enabled = false;
+
+        nextEmerge = Time.time + Random.Range(minEmergeFrequency, maxEmergeFrequency);
     }
 
 	// Update is called once per frame
 	void Update () {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("UnderGround")) {
-            if (lastRecordedTime < 0) {
-                lastRecordedTime = Time.time;
-            }
-            else if (Time.time > lastRecordedTime + spawnDelay) {
-                Spawn();
-                lastRecordedTime = -1;
-            }
-        }
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) {
-            Debug.Log("Reached");
-            if (lastRecordedTime < 0) {
-                lastRecordedTime = Time.time;
-            }
-            else if (lastRecordedTime > lastRecordedTime + idleDelay) {
-                Despawn();
-                lastRecordedTime = -1;
-            }
+        if (Time.time > nextEmerge && !emerged) {
+            Debug.Log("Emerging");
+            emerged = true;
+            transform.position = new Vector3( player.transform.position.x, -2.0f, 0.0f);
+            Dig();
+            Invoke("Emerge", digDelay);
         }
     }
 
-    public void Despawn() {
-        animator.SetTrigger("Despawn");
+    private void Dig() {
+        sprite.sortingOrder = -1;
+        animator.SetTrigger("Dig");
+    }
+
+    private void Emerge() {
+        sprite.sortingOrder = 3;
+        animator.SetTrigger("Emerge");
+        collider.enabled = true;
+        Invoke("Submerge", emergeDuration);
+    }
+
+    public void Submerge() {
+        animator.SetTrigger("Submerge");
+        collider.enabled = false;
+        nextEmerge = Time.time + Random.Range(minEmergeFrequency, maxEmergeFrequency);
+        emerged = false;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy") {
+            collision.gameObject.GetComponent<IDamageTaker>().TakeDamage(DAMAGE);
+        }
     }
 }

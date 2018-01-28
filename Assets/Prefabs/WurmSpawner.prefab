@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4183251957327280}
   - component: {fileID: 114793722614781096}
   m_Layer: 0
-  m_Name: BossSpawner
+  m_Name: WurmSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1977022124001990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.8097486, y: 2.3600001, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,8 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d614008ba78e5404eb18212dcff4b1f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnThreshold: 0
-  spawnDelay: 1
-  idleDelay: 1
-  bossPrefab: {fileID: 1375635530049600, guid: b07b4aced2a6e8346acefaa62c932087, type: 2}
-  boss: {fileID: 0}
+  spawnThreshold: 100
+  wurmPrefab: {fileID: 1375635530049600, guid: b07b4aced2a6e8346acefaa62c932087, type: 2}
