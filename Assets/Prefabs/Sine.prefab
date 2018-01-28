@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4880508612132438}
   - component: {fileID: 212092806278425186}
   - component: {fileID: 114811319485768410}
+  - component: {fileID: 114643206779968726}
   m_Layer: 0
   m_Name: SineSine
   m_TagString: Untagged
@@ -65,13 +66,28 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524400620937876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.485, y: -0.298, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4880508612132438}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114643206779968726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1157844943626212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b73d379c7254bc698c516667b5ad80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phantomColor: {r: 1, g: 1, b: 1, a: 1}
+  phantomLifetime: 0.4
+  phantomStep: 0.001
+  fadeoutPhantoms: 1
 --- !u!114 &114740310381089248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,8 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d14fa1c5238547c2a466e1f48596ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 4
-  frequency: 3
+  min_amplitude: 2
+  max_amplitude: 7
 --- !u!212 &212092806278425186
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -129,9 +145,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 0fee1931fd1d74f95beb8cf7ea60c099, type: 3}
-  m_Color: {r: 0.8897059, g: 0.09812932, b: 0.09812932, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 50436726851204114}
   - component: {fileID: 61039650643426938}
   - component: {fileID: 95478374145077858}
+  - component: {fileID: 114673983295328854}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -339,7 +340,23 @@ MonoBehaviour:
   fieldUp: 0
   fieldDown: -5.2
   playerCenter: {fileID: 4985685452144782}
+  dashDuration: 0.4
   swordGroup: {fileID: 114988712495133232}
+--- !u!114 &114673983295328854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1676952364308188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b73d379c7254bc698c516667b5ad80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phantomColor: {r: 1, g: 1, b: 1, a: 0.634}
+  phantomLifetime: 0.12
+  phantomStep: 0.05
+  fadeoutPhantoms: 1
 --- !u!114 &114988712495133232
 MonoBehaviour:
   m_ObjectHideFlags: 1
