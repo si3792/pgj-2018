@@ -7,6 +7,7 @@ public class PhantomTrail : MonoBehaviour {
     public Color phantomColor = Color.blue;
     public float phantomLifetime = 0.12f;
     public float phantomStep = 0.5f; //how often a phantom is spawned
+    public bool fadeoutPhantoms = true;
 
     private bool trailing = false;
 
@@ -31,7 +32,15 @@ public class PhantomTrail : MonoBehaviour {
         renderer.color = phantomColor;
         renderer.sprite = this.GetComponent<SpriteRenderer>().sprite;
         renderer.flipX = this.GetComponent<SpriteRenderer>().flipX;
-        FadeoutObject fadeout = phantom.AddComponent<FadeoutObject>();
-        fadeout.lifetime = phantomLifetime;
+        renderer.sortingLayerName = GetComponent<SpriteRenderer>().sortingLayerName;
+        renderer.sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
+        if (fadeoutPhantoms) {
+            FadeoutObject fadeout = phantom.AddComponent<FadeoutObject>();
+            fadeout.lifetime = phantomLifetime;
+        }
+        else {
+            TemporaryObject temporary = phantom.AddComponent<TemporaryObject>();
+            temporary.lifetime = phantomLifetime;
+        }
     }
 }

@@ -42,6 +42,7 @@ public class Character : MonoBehaviour, IDamageTaker {
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        GetComponent<PhantomTrail>().enabled = false;
     }
 
     void Update() {
