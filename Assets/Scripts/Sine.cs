@@ -9,8 +9,15 @@ public class Sine : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		var playerPosition = GameObject.FindGameObjectWithTag ("Player").transform.position;
-		targetPosition = playerPosition 
-			- (transform.position - playerPosition) * 3;
+
+		targetPosition = new Vector3 (
+			playerPosition.x > transform.position.x ? 20f : -20f,
+			transform.position.y,
+			0
+		);
+		//playerPosition = new Vector3(playerPosition.x, transform.position.y, 0);
+		//targetPosition = playerPosition 
+		//	- (transform.position - playerPosition) * 3;
 
 	}
 	
