@@ -5,6 +5,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Character : MonoBehaviour, IDamageTaker {
+    public AudioClip[] getHitClips;
+    public AudioClip outOfSwordsClip;
     public float shochWaveCoolDown = 5f;
     public float shockWaveMagnitude = 100f;
     public int health = 5;
@@ -136,13 +138,14 @@ public class Character : MonoBehaviour, IDamageTaker {
 
     private void HandleAttack() {
 
-        
-		if (Input.GetMouseButtonDown(0) && swordGroup.HasSwords) {
-			Vector3 shootPosition = GetWorldPositionOnPlane(Input.mousePosition, 0);
-			if( !swordsRangeCheck() )return;
-			if (shootPosition.y > swordMaxHeight) {
-				return;
-			}
+
+        if (Input.GetMouseButtonDown(0)) {
+            if (!swordGroup.HasSwords) {
+                SoundManager.instance.PlayEffect(outOfSwordsClip);
+                return;
+            }
+            Vector3 shootPosition = GetWorldPositionOnPlane(Input.mousePosition, 0);
+            if (!swordsRangeCheck() || shootPosition.y > swordMaxHeight) { return; }
             shootPosition.z = 0;
             swordGroup.ShootSword(shootPosition);
             animator.ResetTrigger("Attack");
@@ -162,6 +165,7 @@ public class Character : MonoBehaviour, IDamageTaker {
             foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
                 if (Vector3.Distance(transform.position, enemy.transform.position) < swordMinRange+1) {
                     Rigidbody2D enemyBody = enemy.GetComponent<Rigidbody2D>();
+                    if (enemyBody == null) { continue; }
                     Vector3 direction = enemy.transform.position - transform.position;
                     enemyBody.AddForce(direction * shockWaveMagnitude, ForceMode2D.Force);
                 }
@@ -174,6 +178,7 @@ public class Character : MonoBehaviour, IDamageTaker {
     public void TakeDamage(int value) {
         if(invulnrableCounter<=0){
             health -= value;
+            SoundManager.instance.RandomiseSoundEffect(getHitClips);
             if (health <= 0) {
                 Die();
             }

@@ -44,10 +44,5 @@ public class EnemySwarmer : MonoBehaviour {
         if (Random.Range(1, 101) <= spawnChance) {            
             Instantiate(enemyPrefab, currentSpawnPosition, Quaternion.identity);
         }
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }	
 }
