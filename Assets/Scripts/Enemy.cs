@@ -21,8 +21,8 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 	}
 
 	void Start() {
-		Enemy.sineCount += 1;
-		if (type == enemyType.SINE) {
+        if (type == enemyType.SINE) {
+			Enemy.sineCount += 1;
 			if (sineCount > Enemy.maxSineCount) {
 				Die ();
 			}
@@ -89,7 +89,9 @@ public class Enemy : MonoBehaviour , IDamageTaker {
     }
 
     private void Die() {
-		Enemy.sineCount -= 1;
+        if (type == enemyType.SINE) {
+			Enemy.sineCount -= 1;
+        }
         gameObject.SetActive(false);
     }
 }

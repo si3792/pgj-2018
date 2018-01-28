@@ -17,8 +17,10 @@ public class EnemySwarmer : MonoBehaviour {
 	}
 
     private void FixedUpdate() {
-        ChoseSpawnPosition();
-        ChoseToSpawn();
+        if (!CombatManager.GameOver) {
+            ChoseSpawnPosition();
+            ChoseToSpawn();
+        }
     }
 
 
