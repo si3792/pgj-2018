@@ -188,7 +188,7 @@ MonoBehaviour:
   powerUp: {fileID: 1552438741714476, guid: 6a50e38b2d0539548825b623c0e66d71, type: 2}
   buffs:
   - {fileID: 1366908748554114, guid: 177bfb4668e32ff48a1bc4d69bef7a18, type: 2}
-  dropChance: 10
+  dropChance: 15
 --- !u!114 &114798121138665124
 MonoBehaviour:
   m_ObjectHideFlags: 1

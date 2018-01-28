@@ -806,11 +806,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114793722614781096, guid: 201502e63ee092141b9ad7c37633a9db,
-        type: 2}
-      propertyPath: spawnThreshold
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 201502e63ee092141b9ad7c37633a9db, type: 2}
   m_IsPrefabParent: 0
