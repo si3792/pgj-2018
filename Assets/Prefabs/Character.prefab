@@ -340,6 +340,7 @@ MonoBehaviour:
   fieldUp: 0
   fieldDown: -5.2
   playerCenter: {fileID: 4985685452144782}
+  dashDuration: 0.4
   swordGroup: {fileID: 114988712495133232}
 --- !u!114 &114673983295328854
 MonoBehaviour:
@@ -347,16 +348,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1676952364308188}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6b73d379c7254bc698c516667b5ad80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phantomPrefab: {fileID: 1017273823238958, guid: 7224ff36b2b8a40e48b41b66a8e17667,
-    type: 2}
-  phantomColor: {r: 1, g: 0.36179894, b: 0, a: 0.634}
-  trailDuration: 0.2
-  phantomStep: 0.05
+  phantomColor: {r: 1, g: 1, b: 1, a: 0.541}
+  phantomLifetime: 0.15
+  phantomStep: 0.045
+  fadeoutPhantoms: 1
 --- !u!114 &114988712495133232
 MonoBehaviour:
   m_ObjectHideFlags: 1
