@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 	}
 
 	private static int getMaxSineCount() {
-		if (CombatManager.ScoreCounter < 15)
+		if (CombatManager.ScoreCounter < 10)
 			return 0;
 		if (CombatManager.ScoreCounter < 50)
 			return 1;
@@ -38,8 +38,13 @@ public class Enemy : MonoBehaviour , IDamageTaker {
         if (type == enemyType.SINE) {
 			Enemy.sineCount += 1;
 			if (sineCount > Enemy.getMaxSineCount()) {
+				Destroy(transform.GetComponentInChildren<CoinSpawner> ());
 				Die ();
 			}
+		}
+
+		if (type == enemyType.DEFAULT) {
+			speed = (int) Random.Range(25f, 45f);
 		}
 	}
 

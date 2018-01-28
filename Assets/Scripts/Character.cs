@@ -7,7 +7,7 @@ using UnityEngine;
 public class Character : MonoBehaviour, IDamageTaker {
     public AudioClip[] getHitClips;
     public AudioClip outOfSwordsClip;
-    public float shochWaveCoolDown = 5f;
+    public float shockWaveCoolDown = 5f;
     public float shockWaveMagnitude = 100f;
     public int health = 5;
     public float dashCoolDown = 1.0f;
@@ -51,7 +51,7 @@ public class Character : MonoBehaviour, IDamageTaker {
 
     void Update() {
         if (Input.GetButtonDown("Jump")) {
-            if(finalDashCheck<0 || Time.time>finalDashCheck + dashCoolDown){
+            if(finalDashCheck < 0 || Time.time>  finalDashCheck + dashCoolDown){
                 GetComponent<PhantomTrail>().enabled = true;
                 Invoke("StopDashing", dashDuration);
                 dashing = true;
@@ -163,7 +163,7 @@ public class Character : MonoBehaviour, IDamageTaker {
 	}
 
     private void HandleShockWave() {
-        if (Input.GetButtonDown("Fire2") && Time.time > finalShockWaveCheck + shochWaveCoolDown) {
+        if (Input.GetButtonDown("Fire2") && Time.time > finalShockWaveCheck + shockWaveCoolDown) {
             foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
                 if (Vector3.Distance(transform.position, enemy.transform.position) < swordMinRange+1) {
                     Rigidbody2D enemyBody = enemy.GetComponent<Rigidbody2D>();
@@ -210,4 +210,8 @@ public class Character : MonoBehaviour, IDamageTaker {
 		return ray.GetPoint(distance);
 	}
 		
+
+    public float NextShockwaveTime {
+        get { return finalShockWaveCheck + shockWaveCoolDown; }
+    }
 }
