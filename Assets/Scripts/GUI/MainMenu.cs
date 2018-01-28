@@ -8,8 +8,14 @@ public class MainMenu : MonoBehaviour {
     public GameObject introText;
     public GameObject mainMenuPane;
     public float defaultDuration = 11.0f;
+    public AudioClip mainMenuTheme;
+    public AudioClip staticTheme;
+
+    private bool enabled = false;
 
     void Start() {
+        introText.SetActive(true);
+        mainMenuPane.SetActive(false);
         Invoke("EnableMenu", defaultDuration);
     }
 
@@ -28,7 +34,21 @@ public class MainMenu : MonoBehaviour {
     }
 
     private void EnableMenu() {
-        introText.SetActive(false);
-        mainMenuPane.SetActive(true);
+        if (!enabled) {
+            enabled = true;
+            introText.SetActive(false);
+            mainMenuPane.SetActive(true);
+            PlaySounds();
+        }
+    }
+
+    private void PlaySounds() {
+        SoundManager.instance.PlayMusic(mainMenuTheme, false);
+        Invoke("PlayStatic", mainMenuTheme.length);
+    }
+
+    private void PlayStatic() {
+        SoundManager.instance.SetMusicVolume(0.3f);
+        SoundManager.instance.PlayMusic(staticTheme, true);
     }
 }

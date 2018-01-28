@@ -28,6 +28,18 @@ public class SoundManager : MonoBehaviour {
         effectsSource.PlayOneShot(effect);
     }
 
+    public void PlayMusic(AudioClip music, bool loop = true) {
+        musicSource.clip = music;
+        musicSource.PlayOneShot(music);
+        musicSource.loop = loop;
+    }
+
+    public void SetMusicVolume(float value) {
+        if (value >= 0.0f && value <= 1.0f) {
+            musicSource.volume = value;
+        }
+    }
+
     public void RandomiseSoundEffect(params AudioClip[] audioClips) {
         int soundToPlay = Random.Range(0, audioClips.Length);
         effectsSource.clip = audioClips[soundToPlay];
