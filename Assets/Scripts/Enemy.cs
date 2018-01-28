@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 
     public int health = 1;
     public int speed = 5;
+	public float closeInRange = 4f;
+	public float stopDistance = 0f;
     private Vector3 targetDirection;
 	bool isFacingRight = true;
 
@@ -40,8 +42,14 @@ public class Enemy : MonoBehaviour , IDamageTaker {
 		else if (player.transform.position.x < transform.position.x && !isFacingRight)
 			Flip ();
 
+		// Dont move if respecting stopDistance
+		if (Vector3.Distance (player.transform.position, transform.position) < stopDistance) {
+			targetDirection = transform.position;
+			return;
+		}
+
         targetDirection = player.transform.position;
-		if (Vector3.Distance (player.transform.position, transform.position) > 4f && Mathf.Abs(transform.position.x - player.transform.position.x) > 1f)
+		if (Vector3.Distance (player.transform.position, transform.position) > closeInRange && Mathf.Abs(transform.position.x - player.transform.position.x) > 1f)
 			targetDirection.y = transform.position.y;
     }
 
