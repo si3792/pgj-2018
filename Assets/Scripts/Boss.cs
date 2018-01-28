@@ -9,6 +9,8 @@ public class Boss : MonoBehaviour {
     // public float spawnDelay = 1.0f;
     // private float lastRecordedTime = -1.0f;
 
+    public AudioClip wormSpawnClip;
+
     private const int DAMAGE = 4;
 
     public float emergeDuration = 5.0f;
@@ -56,6 +58,7 @@ public class Boss : MonoBehaviour {
     }
 
     private void Emerge() {
+        SoundManager.instance.PlayEffect(wormSpawnClip);
         LookAtPlayer();
 		GameObject.FindGameObjectWithTag ("CameraBigShake").GetComponent<PerlinShake>().PlayShake();
         sprite.sortingOrder = 3;

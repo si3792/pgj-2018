@@ -96,10 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d91fd189e4533e48ab0886fea404eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wormSpawnClip: {fileID: 8300000, guid: 18dc53afefb9f65468ec829f9b8d271b, type: 3}
   emergeDuration: 0.5
   minEmergeFrequency: 3
   maxEmergeFrequency: 5
-  digDelay: 1
+  digDelay: 2
 --- !u!212 &212058233495771690
 SpriteRenderer:
   m_ObjectHideFlags: 1

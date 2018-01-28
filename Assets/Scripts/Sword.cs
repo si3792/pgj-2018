@@ -6,6 +6,9 @@ public class Sword : MonoBehaviour {
 
     public AudioClip swordHitGround;
     public AudioClip swordHitEnemy;
+    public AudioClip doubleKillClip;
+    public AudioClip tripleKillClip;
+    public AudioClip monsterKillClip;
     public float speed = 5.0f;
     private bool shooting = false;
     private bool ready = false;
@@ -82,12 +85,12 @@ public class Sword : MonoBehaviour {
 
 		// 
 		if (killCount == 2) {
-			// Sound - double kill
+            SoundManager.instance.PlayEffect(doubleKillClip);
 		} else if (killCount == 3) {
-			// Sound - triple kill
-		} else if (killCount > 3) {
-			// Sound - multi kill
-		}
+            SoundManager.instance.PlayEffect(tripleKillClip);
+        } else if (killCount > 3) {
+            SoundManager.instance.PlayEffect(monsterKillClip);
+        }
     }
 
     public bool Ready {

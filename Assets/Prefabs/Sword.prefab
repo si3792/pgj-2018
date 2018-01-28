@@ -98,6 +98,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordHitGround: {fileID: 8300000, guid: d57e8df9064a454409de065b666b970f, type: 3}
   swordHitEnemy: {fileID: 8300000, guid: baff972e7ce06114888730f7fbcbeaf6, type: 3}
+  doubleKillClip: {fileID: 8300000, guid: e1fec065db36b4544983cf8255de1c33, type: 3}
+  tripleKillClip: {fileID: 8300000, guid: d42f0a4033223ab418728720a18efcd5, type: 3}
+  monsterKillClip: {fileID: 8300000, guid: d4e855b32e7cc7e41b57f393d3ecf3ab, type: 3}
   speed: 25
   sparkFx: {fileID: 1743029136111960, guid: 58da7ddce45ab4945b8901d1a788948f, type: 2}
 --- !u!212 &212414773584645920
