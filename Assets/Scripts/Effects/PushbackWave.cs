@@ -6,16 +6,9 @@ using UnityEngine;
 public class PushbackWave : MonoBehaviour {
 
     //public ParticleSystem particles;
-    public GameObject ring;
-
-    void Start() {
-         
-        //   particles.Stop();
-    }
+    public Animator ring;
 
     public void Display() {
-        ring.SetActive(true);
-
-        //   particles.Play();
+        ring.SetTrigger("Expand");
     }
 }
