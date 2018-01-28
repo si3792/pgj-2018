@@ -11,6 +11,7 @@ public class BossSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (CombatManager.ScoreCounter >= spawnThreshold) {
+            SoundManager.instance.SwitchToBossTheme();
             Instantiate(wurmPrefab);
             Destroy(this.gameObject);
         }
