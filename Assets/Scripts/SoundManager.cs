@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour {
     public static SoundManager instance = null;
 
     public AudioClip bossTheme;
+    public AudioClip mainTheme;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,7 @@ public class SoundManager : MonoBehaviour {
         else {
             GameObject.Destroy(this);
         }
+        musicSource.clip = mainTheme;
         musicSource.Play();
 	}
 	
