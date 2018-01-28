@@ -40,6 +40,9 @@ public class CombatGUI : MonoBehaviour {
         Enemy.resetLevel();
         SoundManager.instance.SwitchToDefaultTheme();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		KillCounter.doubleKills = 0;
+		KillCounter.tripleKills = 0;
+		KillCounter.multiKills = 0;
     }
 
     public void QuitProgram() {
