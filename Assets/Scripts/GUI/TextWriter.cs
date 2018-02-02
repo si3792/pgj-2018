@@ -15,15 +15,28 @@ public class TextWriter : MonoBehaviour {
 
     private float nextWrite = 0.0f;
 
-    void Start () {
-        nextWrite = Time.time + writeFrequency;
+    public bool writeOnEnabled = true;
+
+    private void OnEnable() {
         textComp = GetComponent<Text>();
-	}
+        if (writeOnEnabled) {
+            Write();
+
+        }
+    }
+
+    public void Write() {
+        if (textComp != null) {
+            textComp.text = "";
+            nextWrite = Time.time + writeFrequency;
+            currentChar = 0;
+        }
+    }
 
     private void Update() {
 
-        if (currentChar == text.Length) {
-            this.enabled = false;
+        if (currentChar >= text.Length) {
+            return;
         }
 
         if (Time.time > nextWrite) {
