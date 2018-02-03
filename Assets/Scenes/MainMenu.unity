@@ -662,7 +662,7 @@ MonoBehaviour:
   defaultDuration: 11
   mainMenuTheme: {fileID: 8300000, guid: 47830ec49afd943f3bdd0267b712b1dd, type: 3}
   staticTheme: {fileID: 8300000, guid: c712e47bb42dd4ad79fada11e96fd7ff, type: 3}
-  creditsSwitchUnlockTime: 1.85
+  creditsSwitchUnlockTime: 1.95
   controlsSwitchUnlockTime: 0.32
 --- !u!1 &795987364
 GameObject:
@@ -1566,6 +1566,11 @@ Prefab:
       propertyPath: m_AnimationTriggers.m_PressedTrigger
       value: Normal
       objectReference: {fileID: 0}
+    - target: {fileID: 114732335279595516, guid: 539b980a0ec6a48fb8e8a258fe8a259d,
+        type: 2}
+      propertyPath: m_AnimationTriggers.m_DisabledTrigger
+      value: Normal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 539b980a0ec6a48fb8e8a258fe8a259d, type: 2}
   m_IsPrefabParent: 0
@@ -1797,6 +1802,11 @@ Prefab:
       propertyPath: m_AnimationTriggers.m_PressedTrigger
       value: Normal
       objectReference: {fileID: 0}
+    - target: {fileID: 114732335279595516, guid: 539b980a0ec6a48fb8e8a258fe8a259d,
+        type: 2}
+      propertyPath: m_AnimationTriggers.m_DisabledTrigger
+      value: Normal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 539b980a0ec6a48fb8e8a258fe8a259d, type: 2}
   m_IsPrefabParent: 0
@@ -1964,6 +1974,11 @@ Prefab:
     - target: {fileID: 114732335279595516, guid: 539b980a0ec6a48fb8e8a258fe8a259d,
         type: 2}
       propertyPath: m_AnimationTriggers.m_PressedTrigger
+      value: Normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 114732335279595516, guid: 539b980a0ec6a48fb8e8a258fe8a259d,
+        type: 2}
+      propertyPath: m_AnimationTriggers.m_DisabledTrigger
       value: Normal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
